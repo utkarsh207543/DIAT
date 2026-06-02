@@ -1,0 +1,88 @@
+================================================================================
+  IMAGE ENCRYPTION & SECURITY ANALYSIS SYSTEM - QUICK START
+================================================================================
+
+BASIC USAGE:
+============
+
+1. DEFAULT (uses mitu.png, QRNG.txt, saves to results/):
+   python main.py
+
+2. CUSTOM IMAGE:
+   python main.py --image myimage.png
+
+3. CUSTOM QRNG FILE:
+   python main.py --qrng myqrng.txt
+
+4. CUSTOM OUTPUT FOLDER:
+   python main.py --output myresults/
+
+5. ALL CUSTOM:
+   python main.py --image img.png --qrng qrng.txt --output output/
+
+
+EXAMPLES:
+=========
+
+Example 1 - Different image in same folder:
+  python main.py --image photo.jpg
+
+Example 2 - Image from different folder:
+  python main.py --image images/test.png
+
+Example 3 - Custom QRNG source:
+  python main.py --qrng random_bits/qrng_source.txt
+
+Example 4 - Save results to specific location:
+  python main.py --output ~/encryption_results/
+
+Example 5 - All custom paths:
+  python main.py --image ./data/image.png --qrng ./keys/random.txt --output ./analysis/
+
+
+MODULAR STRUCTURE:
+==================
+
+config.py           - Configuration & argument parsing
+qrng_utils.py       - QRNG loading and shuffling
+crypto.py           - Encryption/Decryption class
+attacks.py          - Attack functions
+metrics.py          - Security metrics calculations
+analysis.py         - Visualization functions
+main.py             - Main orchestration program (RUN THIS!)
+
+
+OUTPUT FILES SAVED:
+===================
+
+Images:
+  01_original.png - Original image
+  02_encrypted_1.png - Encrypted after shuffling
+  03_shuffled.png - Intermediate shuffled state
+  04_encrypted_2_final.png - Final encrypted image
+  05_decrypted.png - Decrypted result
+  06_encrypted_differential.png - Differential attack
+
+Analysis:
+  corr_orig_*.png - Original image correlations
+  corr_enc_*.png - Encrypted image correlations
+  hist_*.png - Histograms
+  metrics.txt - Complete analysis report
+
+
+TROUBLESHOOTING:
+================
+
+Error: "Image file not found"
+  → Make sure the image path is correct
+  → Check file exists: ls -la path/to/image.png
+
+Error: "QRNG file not found"
+  → Make sure QRNG.txt exists
+  → Check file exists: ls -la QRNG.txt or specify correct path
+
+Error: Permission denied
+  → Make sure you have write permission to output directory
+  → Try: chmod 755 output_directory/
+
+================================================================================

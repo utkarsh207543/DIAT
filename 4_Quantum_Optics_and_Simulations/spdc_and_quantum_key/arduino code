@@ -1,0 +1,40 @@
+const int laserPin = 7;
+const int sensorLeft = A0;
+const int sensorRight = A1;
+
+String bitstream = "";
+unsigned long lastSendTime = 0;
+const unsigned long sendInterval = 1000;  // Send every 1 second
+
+void setup() {
+  pinMode(laserPin, OUTPUT);
+  Serial.begin(115200);  // Fast serial output for bitstream
+}
+
+void loop() {
+  digitalWrite(laserPin, HIGH);    // Turn ON laser
+  delayMicroseconds(50);           // Allow light to stabilize
+  int valL = analogRead(sensorLeft);
+  int valR = analogRead(sensorRight);
+  digitalWrite(laserPin, LOW);     // Turn OFF laser
+  delayMicroseconds(50);           // Optional cooling off
+
+  // Use comparator to extract bit
+  if (valL > valR) {
+    bitstream += "1";
+  } else if (valR > valL) {
+    bitstream += "0";
+  } // If equal, discard (do not append)
+
+  // Send bitstream periodically
+  if (millis() - lastSendTime >= sendInterval) {
+    if (bitstream.length() > 0) {
+      Serial.println(bitstream);
+      bitstream = "";
+    }
+    lastSendTime = millis();
+  }
+
+  // Sampling rate control
+}
+

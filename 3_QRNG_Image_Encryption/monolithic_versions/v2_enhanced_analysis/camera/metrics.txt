@@ -1,0 +1,160 @@
+======================================================================
+IMAGE ENCRYPTION SECURITY ANALYSIS REPORT
+======================================================================
+
+=== ENTROPY ANALYSIS ===
+Initial entropy (Plain):    7.009716
+Encrypted entropy (Cipher): 7.997148
+Final entropy (Decrypted):  7.009716
+
+=== STRUCTURAL SIMILARITY (SSIM) ===
+SSIM (Original vs Encrypted): 0.006996
+SSIM (Original vs Decrypted): 1.000000
+
+=== RECONSTRUCTION QUALITY ===
+MSE:  0.0
+PSNR: inf
+
+=== TIMING ===
+Encryption time: 0.712938 seconds
+Decryption time: 0.729537 seconds
+
+=== CORRELATION COEFFICIENTS ===
+Original Image:
+  Horizontal: 0.9334751147265749
+  Vertical:   0.9592229950890353
+  Diagonal:   0.9086634967479305
+
+Encrypted Image:
+  Horizontal: 0.008847373857786632
+  Vertical:   -0.0016486260053881958
+  Diagonal:   0.0005882325633571343
+
+=== BLOCKING ATTACK ANALYSIS ===
+Attack Parameters:
+  Block Ratio: 0.25 (25% of image)
+  Block Size: 64x64 pixels
+
+Results:
+  MSE:  9291.961944580078
+  PSNR: 8.449729383979909
+  SSIM: 0.011795571964674022
+
+=== NOISE ATTACK ANALYSIS ===
+Salt & Pepper Noise:
+Attack Parameters:
+  Noise Amount: 0.05 (5% of pixels)
+  Affected Pixels: ~3276 pixels
+
+Results:
+  MSE:  9481.493377685547
+  PSNR: 8.362036148157568
+  SSIM: 0.0074199424137775
+
+Gaussian Noise:
+Attack Parameters:
+  Variance: 0.001
+  Standard Deviation: 0.0316
+  Distribution: Normal(0, 0.001)
+
+Results:
+  MSE:  9405.4794921875
+  PSNR: 8.396994200455223
+  SSIM: 0.008012892916228526
+
+QRNG-based Noise:
+Attack Parameters:
+  Noise Strength: 0.1 (10% of max intensity)
+  Noise Range: ±25 intensity levels
+  Entropy Source: Hardware QRNG
+
+Results:
+  MSE:  9451.870834350586
+  PSNR: 8.375625827692042
+  SSIM: 0.007931272887117558
+
+=== DIFFERENTIAL ATTACK ANALYSIS ===
+NPCR (%): 99.61090087890625
+UACI (%): 33.447852041207106
+
+=== KEY SENSITIVITY ANALYSIS ===
+NPCR (%): 99.61090087890625
+UACI (%): 33.447852041207106
+SSIM (Cipher vs Cipher'): 0.0068284143346013
+
+=== BRUTE-FORCE ATTACK ANALYSIS ===
+Key space size: 2^4096
+Assumed attack rate: 10^12 keys/sec
+log10(Time in seconds): 1221.02
+log10(Time in years):   1213.52
+Conclusion: Brute-force attack is computationally infeasible.
+
+=== NOISE TYPE SENSITIVITY ANALYSIS ===
+Correlation Coefficient (CC) vs Noise Strength for Different Noise Types:
+Noise Strength Range: 0 to 1
+Number of Test Points: 50
+
+Salt & Pepper Noise:
+  Strength=0.000: CC=0.998660
+  Strength=0.245: CC=0.007239
+  Strength=0.510: CC=0.003000
+  Strength=0.755: CC=0.003829
+  Strength=1.000: CC=0.008274
+
+Gaussian Noise:
+  Strength=0.000: CC=0.998660
+  Strength=0.245: CC=0.002008
+  Strength=0.510: CC=0.000776
+  Strength=0.755: CC=0.010889
+  Strength=1.000: CC=0.005269
+
+QRNG Noise:
+  Strength=0.000: CC=1.000000
+  Strength=0.245: CC=0.003923
+  Strength=0.510: CC=0.003790
+  Strength=0.755: CC=0.003737
+  Strength=1.000: CC=0.005020
+
+Plots saved:
+  - noise_cc_vs_strength_all.png (combined plot)
+  - noise_cc_vs_strength_salt_pepper.png
+  - noise_cc_vs_strength_gaussian.png
+  - noise_cc_vs_strength_qrng.png
+
+=== KEY PERTURBATION ANALYSIS ===
+Correlation Coefficient (|CC|) and MSE vs Key Perturbation:
+Perturbation Range: 0 to 1 (fraction of key bits flipped)
+Number of Test Points: 100
+  α=0.000: |CC|=0.003753, MSE=0.00
+  α=0.253: |CC|=0.006528, MSE=11000.38
+  α=0.505: |CC|=0.000578, MSE=10920.20
+  α=0.758: |CC|=0.007808, MSE=10897.71
+  α=1.000: |CC|=0.008981, MSE=10932.62
+Plot saved: security_cc_vs_key_perturbation.png
+Plot saved: security_mse_vs_key_perturbation.png
+Plot saved: security_key_sensitivity.png (combined plot)
+
+=== FRACTIONAL ORDER SENSITIVITY ANALYSIS ===
+Study of scheme sensitivity to fractional transform orders:
+Order Range: 0 to 1
+Number of Test Points: 100
+
+Fractional Fourier Transform Order Sensitivity (MSE):
+  Order=0.000: MSE=0.00
+  Order=0.253: MSE=10922.27
+  Order=0.505: MSE=10921.87
+  Order=0.758: MSE=10849.17
+  Order=1.000: MSE=10984.76
+
+Gyrator Transform Order (α) Sensitivity (CC):
+  α=0.000: CC=1.000000
+  α=0.253: CC=0.002552
+  α=0.505: CC=0.002192
+  α=0.758: CC=0.003960
+  α=1.000: CC=0.002155
+
+Plots saved:
+  - fractional_order_sensitivity.png (combined plot)
+  - fractional_fourier_sensitivity.png
+  - gyrator_order_sensitivity.png
+

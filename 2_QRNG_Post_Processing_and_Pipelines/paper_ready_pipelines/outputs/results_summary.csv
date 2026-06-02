@@ -1,0 +1,2 @@
+num_bits,overall_bias,window,bias_tol,frac_within_tol,max_abs_dev,cusum_k,cusum_h,gp_max,gn_min,alarms,autocorr_lag1,autocorr_lag2,beacon_bits_per_epoch,beacon_epochs_total
+400000,0.501315,1000000,0.005,1.0,0.001314999999999955,0.005,0.05,140.4800000000881,-110.88500000000315,1,0.0011255936822869923,0.0017031165112190091,2048,195

@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIST 800-22 Statistical Test Suite - DIAT</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .main-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .header-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .logo {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+        
+        .header-text {
+            flex: 1;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .header-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        .header-text .subtitle {
+            font-size: 1.2rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .header-text .institution {
+            font-size: 1rem;
+            color: #9ca3af;
+            margin-top: 5px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h2 i {
+            color: #667eea;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.95rem;
+        }
+        
+        .input-group textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+        
+        .file-upload {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            background: #fafafa;
+            transition: all 0.3s ease;
+        }
+        
+        .file-upload:hover {
+            border-color: #667eea;
+            background: #f8faff;
+        }
+        
+        .file-upload input[type="file"] {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background: white;
+        }
+        
+        .file-upload select {
+            padding: 10px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background: white;
+            font-weight: 500;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .test-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            background: #fafafa;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .test-item:hover {
+            border-color: #667eea;
+            background: #f8faff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        
+        .test-item input[type="checkbox"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            accent-color: #667eea;
+        }
+        
+        .test-item label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+            flex: 1;
+            color: #374151;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            min-width: 140px;
+            justify-content: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #6b7280, #4b5563);
+            color: white;
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+        
+        .btn-info {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+        }
+        
+        .results-section {
+            display: none;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .results-table th,
+        .results-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .results-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .results-table tr:hover {
+            background: #f8faff;
+        }
+        
+        .conclusion-random {
+            color: #10b981;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .conclusion-non-random {
+            color: #ef4444;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .error-message {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            color: #dc2626;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 4px solid #ef4444;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .success-message {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            color: #16a34a;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 4px solid #22c55e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .excursion-results {
+            margin-left: 20px;
+        }
+        
+        .excursion-results table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .excursion-results th,
+        .excursion-results td {
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        
+        .excursion-results th {
+            background: #f9fafb;
+            font-weight: 600;
+        }
+        
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .help-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .help-link:hover {
+            color: #764ba2;
+            transform: translateY(-2px);
+        }
+        
+        .signature {
+            color: #6b7280;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            
+            .test-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .overview-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .overview-card.passed {
+            border-left-color: #10b981;
+        }
+
+        .overview-card.failed {
+            border-left-color: #ef4444;
+        }
+
+        .overview-card.total {
+            border-left-color: #3b82f6;
+        }
+
+        .overview-card.assessment {
+            border-left-color: #8b5cf6;
+        }
+
+        .overview-icon {
+            font-size: 2.5rem;
+            opacity: 0.8;
+        }
+
+        .overview-card.passed .overview-icon {
+            color: #10b981;
+        }
+
+        .overview-card.failed .overview-icon {
+            color: #ef4444;
+        }
+
+        .overview-card.total .overview-icon {
+            color: #3b82f6;
+        }
+
+        .overview-card.assessment .overview-icon {
+            color: #8b5cf6;
+        }
+
+        .overview-content {
+            flex: 1;
+        }
+
+        .overview-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .overview-assessment {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .overview-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .progress-section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 10px;
+            transition: width 0.8s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header-section">
+            <div class="header-content">
+                <img src="/static/images/diat-logo.png" alt="DIAT Logo" class="logo">
+                <div class="header-text">
+                    <h1>NIST 800-22 Statistical Test Suite</h1>
+                    <div class="subtitle">Random Number Generator Testing Platform</div>
+                    <div class="institution">Defence Institute of Advanced Technology (DIAT)</div>
+                </div>
+                <img src="/static/images/drdo-logo.png" alt="DRDO Logo" class="logo">
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="section">
+                <h2><i class="fas fa-upload"></i>Data Input & Management</h2>
+                
+                <div class="input-group">
+                    <label for="binary-data">
+                        <i class="fas fa-binary"></i> Binary Data (0s and 1s only):
+                    </label>
+                    <textarea id="binary-data" placeholder="Enter binary data here (e.g., 110100101...)&#10;&#10;Supports up to 200GB file uploads for large datasets"></textarea>
+                </div>
+                
+                <div class="input-group">
+                    <label><i class="fas fa-file-upload"></i> Upload File (Max: 200GB):</label>
+                    <div class="file-upload">
+                        <input type="file" id="file-input" accept=".txt,.dat,.bin">
+                        <select id="file-type">
+                            <option value="binary">Binary Data File</option>
+                            <option value="string">String Data File</option>
+                        </select>
+                        <button type="button" class="btn btn-secondary" onclick="uploadFile()">
+                            <i class="fas fa-upload"></i> Upload
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-chart-line"></i>Statistical Tests</h2>
+                
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="selectAllTests()">
+                        <i class="fas fa-check-double"></i> Select All
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="deselectAllTests()">
+                        <i class="fas fa-times"></i> Deselect All
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="executeTests()">
+                        <i class="fas fa-play"></i> Execute Tests
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="downloadResults()" id="download-btn" style="display: none;">
+                        <i class="fas fa-download"></i> Download Results
+                    </button>
+                    <button type="button" class="btn btn-danger" onclick="resetAll()">
+                        <i class="fas fa-refresh"></i> Reset
+                    </button>
+                </div>
+                
+                <div class="test-grid">
+                    {% for i in range(test_types|length) %}
+                    <div class="test-item">
+                        <input type="checkbox" id="test-{{ i }}" value="{{ i }}">
+                        <label for="test-{{ i }}">{{ test_types[i] }}</label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p><strong>Executing tests, please wait...</strong></p>
+                <p style="color: #6b7280; margin-top: 10px;">This may take a few moments for large datasets</p>
+            </div>
+
+            <div class="section overview-section" id="overview-section" style="display: none;">
+                <h2><i class="fas fa-chart-pie"></i>Test Overview</h2>
+                <div class="overview-grid">
+                    <div class="overview-card passed">
+                        <div class="overview-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="overview-content">
+                            <div class="overview-number" id="passed-count">0</div>
+                            <div class="overview-label">Tests Passed</div>
+                        </div>
+                    </div>
+                    <div class="overview-card failed">
+                        <div class="overview-icon"><i class="fas fa-times-circle"></i></div>
+                        <div class="overview-content">
+                            <div class="overview-number" id="failed-count">0</div>
+                            <div class="overview-label">Tests Failed</div>
+                        </div>
+                    </div>
+                    <div class="overview-card total">
+                        <div class="overview-icon"><i class="fas fa-list"></i></div>
+                        <div class="overview-content">
+                            <div class="overview-number" id="total-count">0</div>
+                            <div class="overview-label">Total Tests</div>
+                        </div>
+                    </div>
+                    <div class="overview-card assessment">
+                        <div class="overview-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="overview-content">
+                            <div class="overview-assessment" id="overall-assessment">Not Available</div>
+                            <div class="overview-label">Overall Assessment</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-section">
+                    <div class="progress-label">Pass Rate: <span id="pass-rate">0%</span></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section results-section" id="results-section">
+                <h2><i class="fas fa-chart-bar"></i>Test Results</h2>
+                <div id="results-content"></div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-content">
+                <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-22r1a.pdf" 
+                   target="_blank" class="help-link">
+                    <i class="fas fa-book"></i>
+                    NIST 800-22 Documentation & Help
+                </a>
+                <div class="signature">
+                    <i class="fas fa-code"></i> Made by Utkarsh Kumar Singh
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentResults = [];
+        let currentBinaryData = '';
+
+        function selectAllTests() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][id^="test-"]');
+            checkboxes.forEach(cb => cb.checked = true);
+        }
+
+        function deselectAllTests() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][id^="test-"]');
+            checkboxes.forEach(cb => cb.checked = false);
+        }
+
+        function resetAll() {
+            document.getElementById('binary-data').value = '';
+            document.getElementById('file-input').value = '';
+            deselectAllTests();
+            document.getElementById('overview-section').style.display = 'none';
+            document.getElementById('results-section').style.display = 'none';
+            document.getElementById('download-btn').style.display = 'none';
+            currentResults = [];
+            currentBinaryData = '';
+            clearMessages();
+        }
+
+        function showMessage(message, type = 'error') {
+            clearMessages();
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type === 'error' ? 'error-message' : 'success-message';
+            
+            const icon = type === 'error' ? '<i class="fas fa-exclamation-triangle"></i>' : '<i class="fas fa-check-circle"></i>';
+            messageDiv.innerHTML = icon + message;
+            
+            document.querySelector('.section').appendChild(messageDiv);
+        }
+
+        function clearMessages() {
+            const messages = document.querySelectorAll('.error-message, .success-message');
+            messages.forEach(msg => msg.remove());
+        }
+
+        function uploadFile() {
+            const fileInput = document.getElementById('file-input');
+            const fileType = document.getElementById('file-type').value;
+            
+            if (!fileInput.files[0]) {
+                showMessage('Please select a file first.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('file_type', fileType);
+
+            fetch('/upload_file', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('binary-data').value = data.binary_data;
+                    showMessage(`File uploaded successfully. Binary length: ${data.binary_length.toLocaleString()} bits`, 'success');
+                } else {
+                    showMessage(data.error);
+                }
+            })
+            .catch(error => {
+                showMessage('Error uploading file: ' + error.message);
+            });
+        }
+
+        function updateTestOverview(results) {
+            if (!results || results.length === 0) {
+                document.getElementById('overview-section').style.display = 'none';
+                return;
+            }
+            
+            let totalTests = results.length;
+            let passedTests = 0;
+            let failedTests = 0;
+            
+            results.forEach(result => {
+                if (result.error) {
+                    failedTests++;
+                } else if (result.excursion_results) {
+                    const anyPassed = result.excursion_results.some(exc => exc.conclusion === 'Random');
+                    if (anyPassed) {
+                        passedTests++;
+                    } else {
+                        failedTests++;
+                    }
+                } else if (result.p_value_1 !== undefined) {
+                    if (result.conclusion_1 === 'Random' && result.conclusion_2 === 'Random') {
+                        passedTests++;
+                    } else {
+                        failedTests++;
+                    }
+                } else {
+                    if (result.conclusion === 'Random') {
+                        passedTests++;
+                    } else {
+                        failedTests++;
+                    }
+                }
+            });
+            
+            const passRate = totalTests > 0 ? (passedTests / totalTests) * 100 : 0;
+            
+            let overallAssessment;
+            let progressColor;
+            if (passRate >= 80) {
+                overallAssessment = "EXCELLENT";
+                progressColor = "linear-gradient(135deg, #10b981, #059669)";
+            } else if (passRate >= 60) {
+                overallAssessment = "GOOD";
+                progressColor = "linear-gradient(135deg, #3b82f6, #2563eb)";
+            } else if (passRate >= 40) {
+                overallAssessment = "FAIR";
+                progressColor = "linear-gradient(135deg, #f59e0b, #d97706)";
+            } else {
+                overallAssessment = "POOR";
+                progressColor = "linear-gradient(135deg, #ef4444, #dc2626)";
+            }
+            
+            document.getElementById('passed-count').textContent = passedTests;
+            document.getElementById('failed-count').textContent = failedTests;
+            document.getElementById('total-count').textContent = totalTests;
+            document.getElementById('overall-assessment').textContent = overallAssessment;
+            document.getElementById('pass-rate').textContent = `${passRate.toFixed(1)}%`;
+            
+            const progressFill = document.getElementById('progress-fill');
+            progressFill.style.width = `${passRate}%`;
+            progressFill.style.background = progressColor;
+            
+            document.getElementById('overview-section').style.display = 'block';
+        }
+
+        function executeTests() {
+            const binaryData = document.getElementById('binary-data').value.trim();
+            const selectedTests = [];
+            
+            // Get selected tests
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][id^="test-"]:checked');
+            checkboxes.forEach(cb => selectedTests.push(parseInt(cb.value)));
+
+            if (!binaryData) {
+                showMessage('Please enter binary data or upload a file.');
+                return;
+            }
+
+            if (selectedTests.length === 0) {
+                showMessage('Please select at least one test.');
+                return;
+            }
+
+            // Validate binary data
+            if (!/^[01]+$/.test(binaryData)) {
+                showMessage('Binary data must contain only 0s and 1s.');
+                return;
+            }
+
+            currentBinaryData = binaryData;
+            
+            // NIST Test Minimum Length Requirements (approximate recommendations)
+            const TEST_REQUIREMENTS = {
+                0: { name: "Frequency", min: 100 },
+                1: { name: "Block Frequency", min: 128 },
+                2: { name: "Cumulative Sums", min: 100 },
+                3: { name: "Runs", min: 100 },
+                4: { name: "Longest Run", min: 128 },
+                5: { name: "Rank", min: 38400 },
+                6: { name: "FFT", min: 1000 },
+                7: { name: "NonOverlapping Template", min: 1000 }, // Recommendation is higher, but this is a soft limit
+                8: { name: "Overlapping Template", min: 1000000 },
+                9: { name: "Universal", min: 387840 },
+                10: { name: "Approximate Entropy", min: 128 },
+                11: { name: "Random Excursions", min: 1000000 },
+                12: { name: "Random Excursions Variant", min: 1000000 },
+                13: { name: "Serial", min: 128 },
+                14: { name: "Linear Complexity", min: 1000000 }
+            };
+
+            const warnings = [];
+            selectedTests.forEach(testIndex => {
+                const req = TEST_REQUIREMENTS[testIndex];
+                if (req && binaryData.length < req.min) {
+                    warnings.push(`${req.name}: Requires ~${req.min.toLocaleString()} bits (Provided: ${binaryData.length.toLocaleString()})`);
+                }
+            });
+
+            if (warnings.length > 0) {
+                const proceed = confirm(
+                    "WARNING: The input data size may be insufficient for the following selected tests:\n\n" +
+                    warnings.join("\n") +
+                    "\n\nResults may be statistically invalid or the test may fail.\n" +
+                    "Do you want to proceed anyway?"
+                );
+                if (!proceed) return;
+            }
+
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('overview-section').style.display = 'none';
+            document.getElementById('results-section').style.display = 'none';
+            clearMessages();
+
+            // Execute tests
+            fetch('/execute_tests', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    binary_data: binaryData,
+                    selected_tests: selectedTests
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('loading').style.display = 'none';
+                
+                if (data.success) {
+                    currentResults = data.results;
+                    updateTestOverview(data.results);
+                    displayResults(data.results, data.data_length);
+                    showMessage(`Tests completed successfully. Data length: ${data.data_length.toLocaleString()} bits`, 'success');
+                    document.getElementById('download-btn').style.display = 'inline-flex';
+                } else {
+                    showMessage(data.error);
+                }
+            })
+            .catch(error => {
+                document.getElementById('loading').style.display = 'none';
+                showMessage('Error executing tests: ' + error.message);
+            });
+        }
+
+        function displayResults(results, dataLength) {
+            const resultsContent = document.getElementById('results-content');
+            
+            let html = `<p style="margin-bottom: 20px;"><strong><i class="fas fa-info-circle"></i> Data Length:</strong> ${dataLength.toLocaleString()} bits</p>`;
+            html += '<table class="results-table">';
+            html += '<thead><tr><th>Test Name</th><th>P-Value</th><th>Conclusion</th><th>Details</th></tr></thead>';
+            html += '<tbody>';
+
+            results.forEach(result => {
+                if (result.error) {
+                    html += `<tr>
+                        <td>${result.test_name}</td>
+                        <td colspan="3" class="conclusion-non-random"><i class="fas fa-exclamation-triangle"></i> ERROR: ${result.error}</td>
+                    </tr>`;
+                } else if (result.excursion_results) {
+                    html += `<tr>
+                        <td>${result.test_name}</td>
+                        <td colspan="3">
+                            <div class="excursion-results">
+                                <table>
+                                    <tr><th>State</th><th>Statistic</th><th>P-Value</th><th>Conclusion</th></tr>`;
+                    result.excursion_results.forEach(exc => {
+                        const conclusionClass = exc.conclusion === 'Random' ? 'conclusion-random' : 'conclusion-non-random';
+                        const icon = exc.conclusion === 'Random' ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>';
+                        html += `<tr>
+                            <td>${exc.state}</td>
+                            <td>${exc.statistic}</td>
+                            <td>${exc.p_value}</td>
+                            <td class="${conclusionClass}">${icon} ${exc.conclusion}</td>
+                        </tr>`;
+                    });
+                    html += `</table></div>
+                        </td>
+                    </tr>`;
+                } else if (result.p_value_1 !== undefined) {
+                    // Serial test
+                    const conclusionClass1 = result.conclusion_1 === 'Random' ? 'conclusion-random' : 'conclusion-non-random';
+                    const conclusionClass2 = result.conclusion_2 === 'Random' ? 'conclusion-random' : 'conclusion-non-random';
+                    const icon1 = result.conclusion_1 === 'Random' ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>';
+                    const icon2 = result.conclusion_2 === 'Random' ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>';
+                    html += `<tr>
+                        <td>${result.test_name} (Component 1)</td>
+                        <td>${result.p_value_1}</td>
+                        <td class="${conclusionClass1}">${icon1} ${result.conclusion_1}</td>
+                        <td>First component</td>
+                    </tr>`;
+                    html += `<tr>
+                        <td>${result.test_name} (Component 2)</td>
+                        <td>${result.p_value_2}</td>
+                        <td class="${conclusionClass2}">${icon2} ${result.conclusion_2}</td>
+                        <td>Second component</td>
+                    </tr>`;
+                } else {
+                    const conclusionClass = result.conclusion === 'Random' ? 'conclusion-random' : 'conclusion-non-random';
+                    const icon = result.conclusion === 'Random' ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>';
+                    html += `<tr>
+                        <td>${result.test_name}</td>
+                        <td>${result.p_value}</td>
+                        <td class="${conclusionClass}">${icon} ${result.conclusion}</td>
+                        <td>${result.details || ''}</td>
+                    </tr>`;
+                }
+            });
+
+            html += '</tbody></table>';
+            resultsContent.innerHTML = html;
+            document.getElementById('results-section').style.display = 'block';
+        }
+
+        function downloadResults() {
+            if (currentResults.length === 0) {
+                showMessage('No results to download.');
+                return;
+            }
+
+            fetch('/download_results', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    results: currentResults,
+                    binary_data: currentBinaryData
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.blob();
+                }
+                throw new Error('Download failed');
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = `nist_comprehensive_results_${new Date().toISOString().slice(0,19).replace(/:/g, '-')}.txt`;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+                showMessage('Comprehensive results downloaded successfully.', 'success');
+            })
+            .catch(error => {
+                showMessage('Error downloading results: ' + error.message);
+            });
+        }
+    </script>
+</body>
+</html>

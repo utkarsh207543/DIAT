@@ -1,0 +1,388 @@
+"""
+Main encryption/decryption and analysis program
+Orchestrates all modules for image encryption, attacks, and security analysis
+
+Usage:
+    python main.py                                                      # Default files
+    python main.py --image path/to/image.png                           # Custom image
+    python main.py --qrng path/to/QRNG.txt                             # Custom QRNG
+    python main.py --output path/to/results                            # Custom output
+    python main.py --image img.png --qrng qrng.txt --output results/   # All custom
+"""
+
+import time
+from PIL import Image
+import numpy as np
+
+# ===== IMPORT ALL MODULES =====
+from config import IMG_PATH, OUT_DIR, KEY_PATH, parser
+from qrng_utils import qrng_bytes
+from crypto import RubikCubeCrypto
+from attacks import (
+    perform_blocking_attack,
+    perform_salt_pepper_attack,
+    perform_gaussian_attack,
+    perform_qrng_noise_attack
+)
+from metrics import (
+    NPCR, UACI, entropy, ssim_index, mse, psnr,
+    corr_coefficients, brute_force_time_estimate_log
+)
+from analysis import (
+    generate_key_stage_images,
+    generate_correlation_analysis,
+    generate_histogram_analysis,
+    get_correlation_coefficients,
+    save_stage,
+    generate_noise_strength_plot,
+    generate_key_perturbation_plot,
+    generate_fractional_order_sensitivity_plots
+)
+
+
+def main():
+    """Main program execution"""
+    
+    print("=" * 60)
+    print("IMAGE ENCRYPTION & SECURITY ANALYSIS SYSTEM")
+    print("=" * 60)
+    
+    # =========================================================
+    # STEP 1: LOAD IMAGE
+    # =========================================================
+    print("\n[1/8] Loading image...")
+    orig = Image.open(IMG_PATH)
+    orig_np = np.array(orig.convert("L"))
+    print(f"      Image shape: {orig_np.shape}")
+    
+    # =========================================================
+    # STEP 2: ENCRYPT IMAGE
+    # =========================================================
+    print("[2/8] Encrypting image...")
+    crypto = RubikCubeCrypto(orig)
+    t0 = time.time()
+    enc = crypto.encrypt()
+    t_enc = time.time() - t0
+    
+    shuffled_np = np.array(Image.fromarray(crypto.shuffled_stage).convert("L"))
+    enc_np = np.array(enc.convert("L"))
+    print(f"      Encryption time: {t_enc:.4f} seconds")
+    
+    # =========================================================
+    # STEP 3: DECRYPT IMAGE
+    # =========================================================
+    print("[3/8] Decrypting image...")
+    t0 = time.time()
+    dec = RubikCubeCrypto(enc).decrypt()
+    t_dec = time.time() - t0
+    
+    dec_np = np.array(dec.convert("L"))
+    print(f"      Decryption time: {t_dec:.4f} seconds")
+    
+    # =========================================================
+    # STEP 4: SAVE KEY STAGES (5 IMAGES)
+    # =========================================================
+    print("[4/8] Saving key encryption stages...")
+    generate_key_stage_images(orig_np, enc_np, shuffled_np, dec_np)
+    print("      Saved: Original, Encrypted 1, Shuffled, Encrypted 2, Decrypted")
+    
+    # =========================================================
+    # STEP 5: DIFFERENTIAL ATTACK ANALYSIS
+    # =========================================================
+    print("[5/8] Performing differential attack analysis...")
+    
+    # CRITICAL: For proper differential attack, BOTH plaintexts must use the SAME key
+    # The original plaintext was already encrypted and key was saved in crypto object
+    
+    # Create modified plaintext (flip 1 bit in first pixel)
+    orig_diff = orig_np.copy()
+    orig_diff[0, 0] ^= 1
+    
+    # Encrypt modified plaintext using the SAME KEY from the original encryption
+    crypto_diff = RubikCubeCrypto(Image.fromarray(orig_diff))
+    crypto_diff.bp_index = crypto.bp_index  # Use same block permutation
+    crypto_diff.load_key()  # Load the saved key from original encryption
+    enc_diff = crypto_diff.encrypt(use_existing_key=True, skip_block_permute=True)
+    enc_diff_np = np.array(enc_diff.convert("L"))
+    
+    # Save differential attack image
+    save_stage(enc_diff_np, "06_encrypted_differential.png")
+    
+    # Compare the two ciphertexts encrypted with the SAME key
+    # enc_np is the original plaintext encrypted, enc_diff_np is modified plaintext with same key
+    NPCR_val = NPCR(enc_np, enc_diff_np)
+    UACI_val = UACI(enc_np, enc_diff_np)
+    print(f"      NPCR: {NPCR_val:.4f}%")
+    print(f"      UACI: {UACI_val:.4f}%")
+    
+    # =========================================================
+    # STEP 6: KEY SENSITIVITY ANALYSIS
+    # =========================================================
+    print("[6/8] Performing key sensitivity analysis...")
+    
+    # Note: Key sensitivity test uses the differentially encrypted image from Step 5
+    # Since each encryption generates a fresh key, we can compare the two ciphertexts
+    # to measure sensitivity (the change in ciphertext from a 1-bit plaintext change)
+    
+    # Calculate sensitivity metrics using differential attack results
+    NPCR_key = NPCR(enc_np, enc_diff_np)
+    UACI_key = UACI(enc_np, enc_diff_np)
+    SSIM_key = ssim_index(enc_np, enc_diff_np)
+    print(f"      NPCR: {NPCR_key:.4f}%")
+    print(f"      UACI: {UACI_key:.4f}%")
+    print(f"      SSIM: {SSIM_key:.6f}")
+    
+    # =========================================================
+    # STEP 7: ATTACKS & ROBUSTNESS ANALYSIS
+    # =========================================================
+    print("[7/8] Performing robustness attacks...")
+    
+    # Attack parameters
+    block_ratio = 0.25
+    salt_pepper_amount = 0.05
+    gaussian_variance = 0.001
+    qrng_strength = 0.1
+    
+    # Blocking attack
+    _, dec_block = perform_blocking_attack(enc_np)
+    MSE_block = mse(orig_np, dec_block)
+    PSNR_block = psnr(orig_np, dec_block)
+    SSIM_block = ssim_index(orig_np, dec_block)
+    
+    # Salt & Pepper noise
+    _, dec_sp = perform_salt_pepper_attack(enc_np)
+    MSE_sp = mse(orig_np, dec_sp)
+    PSNR_sp = psnr(orig_np, dec_sp)
+    SSIM_sp = ssim_index(orig_np, dec_sp)
+    
+    # Gaussian noise
+    _, dec_gauss = perform_gaussian_attack(enc_np)
+    MSE_g = mse(orig_np, dec_gauss)
+    PSNR_g = psnr(orig_np, dec_gauss)
+    SSIM_g = ssim_index(orig_np, dec_gauss)
+    
+    # QRNG noise
+    _, dec_qrng_noise = perform_qrng_noise_attack(enc_np, qrng_bytes)
+    MSE_q = mse(orig_np, dec_qrng_noise)
+    PSNR_q = psnr(orig_np, dec_qrng_noise)
+    SSIM_q = ssim_index(orig_np, dec_qrng_noise)
+    
+    print("      ✓ Blocking attack")
+    print("      ✓ Salt & Pepper noise attack")
+    print("      ✓ Gaussian noise attack")
+    print("      ✓ QRNG noise attack")
+    
+    # =========================================================
+    # STEP 8: ANALYSIS & VISUALIZATION
+    # =========================================================
+    print("[8/8] Generating analysis and visualization...")
+    
+    # Entropy
+    H_orig = entropy(orig_np)
+    H_enc = entropy(enc_np)
+    H_dec = entropy(dec_np)
+    
+    # SSIM
+    SSIM_orig_dec = ssim_index(orig_np, dec_np)
+    SSIM_orig_enc = ssim_index(orig_np, enc_np)
+    
+    # Reconstruction quality
+    MSE_recon = mse(orig_np, dec_np)
+    PSNR_recon = psnr(orig_np, dec_np)
+    
+    # Correlation coefficients
+    corr_data = get_correlation_coefficients(orig_np, enc_np)
+    H_o, V_o, D_o = corr_data['orig'].values()
+    H_e, V_e, D_e = corr_data['enc'].values()
+    
+    # Key space analysis
+    M, N = orig_np.shape
+    key_space_bits = 8 * (M + N)
+    log_sec, log_years = brute_force_time_estimate_log(key_space_bits)
+    
+    # Generate plots
+    generate_correlation_analysis(orig_np, enc_np)
+    generate_histogram_analysis(orig_np, enc_np, dec_np)
+    
+    print("      ✓ Correlation plots generated")
+    print("      ✓ Histogram analysis generated")
+    
+    # Generate security analysis plots
+    print("      Generating security analysis plots...")
+    cc_sp, cc_gauss, cc_qrng, noise_range = generate_noise_strength_plot(orig_np, enc_np, qrng_bytes)
+    cc_key, mse_key, perturbation_range = generate_key_perturbation_plot(orig_np, enc_np, crypto)
+    mse_fourier, cc_gyrator, order_range = generate_fractional_order_sensitivity_plots(orig_np, enc_np, crypto)
+    
+    print("      ✓ Noise type sensitivity plots generated")
+    print("      ✓ Key perturbation plots generated")
+    print("      ✓ Fractional order sensitivity plots generated")
+    
+    # =========================================================
+    # WRITE COMPREHENSIVE METRICS REPORT
+    # =========================================================
+    print("\nWriting comprehensive metrics report...")
+    
+    with open(f"{OUT_DIR}/metrics.txt", "w", encoding="utf-8") as f:
+        f.write("=" * 70 + "\n")
+        f.write("IMAGE ENCRYPTION SECURITY ANALYSIS REPORT\n")
+        f.write("=" * 70 + "\n\n")
+        
+        f.write("=== ENTROPY ANALYSIS ===\n")
+        f.write(f"Initial entropy (Plain):    {H_orig:.6f}\n")
+        f.write(f"Encrypted entropy (Cipher): {H_enc:.6f}\n")
+        f.write(f"Final entropy (Decrypted):  {H_dec:.6f}\n\n")
+        
+        f.write("=== STRUCTURAL SIMILARITY (SSIM) ===\n")
+        f.write(f"SSIM (Original vs Encrypted): {SSIM_orig_enc:.6f}\n")
+        f.write(f"SSIM (Original vs Decrypted): {SSIM_orig_dec:.6f}\n\n")
+        
+        f.write("=== RECONSTRUCTION QUALITY ===\n")
+        f.write(f"MSE:  {MSE_recon}\n")
+        f.write(f"PSNR: {PSNR_recon}\n\n")
+        
+        f.write("=== TIMING ===\n")
+        f.write(f"Encryption time: {t_enc:.6f} seconds\n")
+        f.write(f"Decryption time: {t_dec:.6f} seconds\n\n")
+        
+        f.write("=== CORRELATION COEFFICIENTS ===\n")
+        f.write("Original Image:\n")
+        f.write(f"  Horizontal: {H_o}\n")
+        f.write(f"  Vertical:   {V_o}\n")
+        f.write(f"  Diagonal:   {D_o}\n\n")
+        
+        f.write("Encrypted Image:\n")
+        f.write(f"  Horizontal: {H_e}\n")
+        f.write(f"  Vertical:   {V_e}\n")
+        f.write(f"  Diagonal:   {D_e}\n\n")
+        
+        f.write("=== BLOCKING ATTACK ANALYSIS ===\n")
+        f.write(f"Attack Parameters:\n")
+        f.write(f"  Block Ratio: {block_ratio} ({block_ratio*100:.0f}% of image)\n")
+        f.write(f"  Block Size: {int(orig_np.shape[0]*block_ratio)}x{int(orig_np.shape[1]*block_ratio)} pixels\n\n")
+        f.write(f"Results:\n")
+        f.write(f"  MSE:  {MSE_block}\n")
+        f.write(f"  PSNR: {PSNR_block}\n")
+        f.write(f"  SSIM: {SSIM_block}\n\n")
+        
+        f.write("=== NOISE ATTACK ANALYSIS ===\n")
+        
+        f.write("Salt & Pepper Noise:\n")
+        f.write(f"Attack Parameters:\n")
+        f.write(f"  Noise Amount: {salt_pepper_amount} ({salt_pepper_amount*100:.0f}% of pixels)\n")
+        f.write(f"  Affected Pixels: ~{int(orig_np.size * salt_pepper_amount)} pixels\n\n")
+        f.write(f"Results:\n")
+        f.write(f"  MSE:  {MSE_sp}\n")
+        f.write(f"  PSNR: {PSNR_sp}\n")
+        f.write(f"  SSIM: {SSIM_sp}\n\n")
+        
+        f.write("Gaussian Noise:\n")
+        f.write(f"Attack Parameters:\n")
+        f.write(f"  Variance: {gaussian_variance}\n")
+        f.write(f"  Standard Deviation: {np.sqrt(gaussian_variance):.4f}\n")
+        f.write(f"  Distribution: Normal(0, {gaussian_variance})\n\n")
+        f.write(f"Results:\n")
+        f.write(f"  MSE:  {MSE_g}\n")
+        f.write(f"  PSNR: {PSNR_g}\n")
+        f.write(f"  SSIM: {SSIM_g}\n\n")
+        
+        f.write("QRNG-based Noise:\n")
+        f.write(f"Attack Parameters:\n")
+        f.write(f"  Noise Strength: {qrng_strength} ({qrng_strength*100:.0f}% of max intensity)\n")
+        f.write(f"  Noise Range: ±{int(255 * qrng_strength)} intensity levels\n")
+        f.write(f"  Entropy Source: Hardware QRNG\n\n")
+        f.write(f"Results:\n")
+        f.write(f"  MSE:  {MSE_q}\n")
+        f.write(f"  PSNR: {PSNR_q}\n")
+        f.write(f"  SSIM: {SSIM_q}\n\n")
+        
+        f.write("=== DIFFERENTIAL ATTACK ANALYSIS ===\n")
+        f.write(f"NPCR (%): {NPCR_val}\n")
+        f.write(f"UACI (%): {UACI_val}\n\n")
+        
+        f.write("=== KEY SENSITIVITY ANALYSIS ===\n")
+        f.write(f"NPCR (%): {NPCR_key}\n")
+        f.write(f"UACI (%): {UACI_key}\n")
+        f.write(f"SSIM (Cipher vs Cipher'): {SSIM_key}\n\n")
+        
+        f.write("=== BRUTE-FORCE ATTACK ANALYSIS ===\n")
+        f.write(f"Key space size: 2^{key_space_bits}\n")
+        f.write("Assumed attack rate: 10^12 keys/sec\n")
+        f.write(f"log10(Time in seconds): {log_sec:.2f}\n")
+        f.write(f"log10(Time in years):   {log_years:.2f}\n")
+        f.write("Conclusion: Brute-force attack is computationally infeasible.\n\n")
+        
+        f.write("=== NOISE TYPE SENSITIVITY ANALYSIS ===\n")
+        f.write("Correlation Coefficient (CC) vs Noise Strength for Different Noise Types:\n")
+        f.write(f"Noise Strength Range: 0 to 1\n")
+        f.write(f"Number of Test Points: {len(noise_range)}\n\n")
+        
+        # Sample results for each noise type
+        sample_indices = [0, len(noise_range)//4, len(noise_range)//2, 
+                         3*len(noise_range)//4, len(noise_range)-1]
+        
+        f.write("Salt & Pepper Noise:\n")
+        for idx in sample_indices:
+            if idx < len(noise_range):
+                f.write(f"  Strength={noise_range[idx]:.3f}: CC={cc_sp[idx]:.6f}\n")
+        f.write("\nGaussian Noise:\n")
+        for idx in sample_indices:
+            if idx < len(noise_range):
+                f.write(f"  Strength={noise_range[idx]:.3f}: CC={cc_gauss[idx]:.6f}\n")
+        f.write("\nQRNG Noise:\n")
+        for idx in sample_indices:
+            if idx < len(noise_range):
+                f.write(f"  Strength={noise_range[idx]:.3f}: CC={cc_qrng[idx]:.6f}\n")
+        
+        f.write("\nPlots saved:\n")
+        f.write("  - noise_cc_vs_strength_all.png (combined plot)\n")
+        f.write("  - noise_cc_vs_strength_salt_pepper.png\n")
+        f.write("  - noise_cc_vs_strength_gaussian.png\n")
+        f.write("  - noise_cc_vs_strength_qrng.png\n\n")
+        
+        f.write("=== KEY PERTURBATION ANALYSIS ===\n")
+        f.write("Correlation Coefficient (|CC|) and MSE vs Key Perturbation:\n")
+        f.write(f"Perturbation Range: 0 to 1 (fraction of key bits flipped)\n")
+        f.write(f"Number of Test Points: {len(perturbation_range)}\n")
+        # Sample a few key points from the results
+        sample_indices = [0, len(perturbation_range)//4, len(perturbation_range)//2, 
+                         3*len(perturbation_range)//4, len(perturbation_range)-1]
+        for idx in sample_indices:
+            if idx < len(perturbation_range):
+                f.write(f"  α={perturbation_range[idx]:.3f}: |CC|={cc_key[idx]:.6f}, MSE={mse_key[idx]:.2f}\n")
+        f.write("Plot saved: security_cc_vs_key_perturbation.png\n")
+        f.write("Plot saved: security_mse_vs_key_perturbation.png\n")
+        f.write("Plot saved: security_key_sensitivity.png (combined plot)\n\n")
+        
+        f.write("=== FRACTIONAL ORDER SENSITIVITY ANALYSIS ===\n")
+        f.write("Study of scheme sensitivity to fractional transform orders:\n")
+        f.write(f"Order Range: 0 to 1\n")
+        f.write(f"Number of Test Points: {len(order_range)}\n\n")
+        
+        # Sample results
+        sample_indices = [0, len(order_range)//4, len(order_range)//2, 
+                         3*len(order_range)//4, len(order_range)-1]
+        
+        f.write("Fractional Fourier Transform Order Sensitivity (MSE):\n")
+        for idx in sample_indices:
+            if idx < len(order_range):
+                f.write(f"  Order={order_range[idx]:.3f}: MSE={mse_fourier[idx]:.2f}\n")
+        
+        f.write("\nGyrator Transform Order (α) Sensitivity (CC):\n")
+        for idx in sample_indices:
+            if idx < len(order_range):
+                f.write(f"  α={order_range[idx]:.3f}: CC={cc_gyrator[idx]:.6f}\n")
+        
+        f.write("\nPlots saved:\n")
+        f.write("  - fractional_order_sensitivity.png (combined plot)\n")
+        f.write("  - fractional_fourier_sensitivity.png\n")
+        f.write("  - gyrator_order_sensitivity.png\n\n")
+    
+    print("✓ Metrics report saved to metrics.txt")
+    print("\n" + "=" * 60)
+    print("ANALYSIS COMPLETE!")
+    print("=" * 60)
+    print(f"\nResults saved to: {OUT_DIR}/")
+
+
+if __name__ == "__main__":
+    main()

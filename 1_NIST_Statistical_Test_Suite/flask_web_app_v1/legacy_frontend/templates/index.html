@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIST 800-22 DRDO DIAT v1.0</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f4f4; }
+        .container { max-width: 1200px; margin-top: 20px; }
+        .card { margin-bottom: 20px; }
+        .card-header { background-color: #007bff; color: #fff; }
+        .input-group-text { width: 150px; }
+        .custom-file-label::after { content: "Select File"; }
+        .test-item { padding-bottom: 10px; }
+        .test-item label { font-weight: bold; }
+        .form-check-label { margin-left: 5px; }
+        .footer { text-align: center; margin-top: 20px; }
+
+        .logo {
+    height: 100px; /* or any other size */
+    width: auto;
+}
+
+        .custom-font {
+    font-size: 50px; /* or any other size */
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center d-flex justify-content-between align-items-center custom-font">
+              <!-- Use url_for to reference images in the static directory -->
+                <img src="{{ url_for('static', filename='images/drdo.png') }}" alt="Left Logo" class="logo">
+                <span>
+                NIST 800-22 DRDO DIAT v1.0
+                </span>
+                <img src="{{ url_for('static', filename='images/diat.png') }}" alt="Right Logo" class="logo">
+            </div>
+            <div class="card-body">
+                <!-- Input Data Section -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Binary Data</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="binaryDataFile">
+                            <label class="custom-file-label" for="binaryDataFile">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="stringDataFile">
+                            <label class="custom-file-label" for="stringDataFile">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+
+<!-- ... Other HTML code ... -->
+
+<!-- Randomness Testing Section -->
+<h5 class="mt-4">Randomness Testing:</h5>
+<form action="/execute" method="post">
+    <!-- Single test row -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    01. Frequency (Monobit) Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+
+    <!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    02. Frequency Test within a Block
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+    <!-- ... -->
+
+<!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    03. Runs Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+    <!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    04. Test for the Longest Run of Ones in a Block
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+    <!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    05. Binary Matrix Rank Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+    <!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    06. Discrete Fourier Transform (Spectral) Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+    <!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    07. Non-overlapping Template Matching Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+    <!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    08. Overlapping Template Matching Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+    <!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    09. Maurer's "Universal Statistical" Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+    <!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    10. Linear Complexity Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+    <!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    11. Serial Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+    <!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    12. Approximate Entropy Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+    <!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    13. Cumulative Sums Test (Forward)
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+<!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    14. Cumulative Sums Test (Backward)
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div><!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    15. Random Excursions Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div><!-- ... --><!-- Repeat the above block for each test -->
+    <div class="form-group row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="frequencyTest">
+                <label class="form-check-label" for="frequencyTest">
+                    16. Random Excursions Variant Test
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="P-Value">
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Result">
+        </div>
+    </div>
+                <!-- Buttons -->
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn btn-primary btn-block">Select All Test</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-secondary btn-block">De-Select All Test</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-success btn-block">Execute Test</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-info btn-block">Save as Text File</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-warning btn-block">Reset</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-danger btn-block">Feedback</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 DRDO DIAT</p>
+            <p>Utkarsh Kuamr Singh (utkarsh@ieee.org)</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Bootstrap file

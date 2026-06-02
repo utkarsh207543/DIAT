@@ -1,0 +1,1215 @@
+BW = 0.1 nm
+  Total samples = 8188
+  Excess kurtosis = 11.690
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 97.341
+  Threshold = 214.150
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 541
+
+BW = 0.2 nm
+  Total samples = 8175
+  Excess kurtosis = 30.331
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 82.779
+  Threshold = 182.114
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 333
+
+BW = 0.3 nm
+  Total samples = 8179
+  Excess kurtosis = 47.932
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 70.903
+  Threshold = 155.987
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 241
+
+BW = 0.4 nm
+  Total samples = 8176
+  Excess kurtosis = 29.129
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 84.354
+  Threshold = 185.578
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 338
+
+BW = 0.5 nm
+  Total samples = 8172
+  Excess kurtosis = 36.801
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 78.802
+  Threshold = 173.364
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 287
+
+BW = 0.6 nm
+  Total samples = 8178
+  Excess kurtosis = 43.369
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 75.759
+  Threshold = 166.670
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 253
+
+BW = 0.7 nm
+  Total samples = 8174
+  Excess kurtosis = 31.375
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 83.429
+  Threshold = 183.545
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 316
+
+BW = 0.8 nm
+  Total samples = 8179
+  Excess kurtosis = 34.760
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 83.047
+  Threshold = 182.702
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 291
+
+BW = 0.9 nm
+  Total samples = 8169
+  Excess kurtosis = 53.566
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 97.093
+  Threshold = 213.604
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 284
+
+BW = 1.1 nm
+  Total samples = 8180
+  Excess kurtosis = 43.857
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 107.063
+  Threshold = 235.538
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 271
+
+BW = 1.2 nm
+  Total samples = 8184
+  Excess kurtosis = 44.216
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 107.748
+  Threshold = 237.045
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 260
+
+BW = 1.3 nm
+  Total samples = 8192
+  Excess kurtosis = 56.817
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 103.953
+  Threshold = 228.696
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 183
+
+BW = 1.4 nm
+  Total samples = 8192
+  Excess kurtosis = 57.145
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 107.329
+  Threshold = 236.124
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 180
+
+BW = 1.5 nm
+  Total samples = 8192
+  Excess kurtosis = 56.645
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 112.792
+  Threshold = 248.142
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 180
+
+BW = 1.6 nm
+  Total samples = 8192
+  Excess kurtosis = 38.796
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 118.720
+  Threshold = 261.184
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 253
+
+BW = 1.7 nm
+  Total samples = 8192
+  Excess kurtosis = 38.906
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 121.077
+  Threshold = 266.369
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 252
+
+BW = 1.8 nm
+  Total samples = 8192
+  Excess kurtosis = 38.634
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 124.719
+  Threshold = 274.383
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 253
+
+BW = 1.9 nm
+  Total samples = 8192
+  Excess kurtosis = 38.091
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 129.201
+  Threshold = 284.243
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 257
+
+BW = 2.1 nm
+  Total samples = 8192
+  Excess kurtosis = 22.346
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 134.323
+  Threshold = 295.510
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 384
+
+BW = 2.2 nm
+  Total samples = 8192
+  Excess kurtosis = 27.633
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 137.782
+  Threshold = 303.119
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 332
+
+BW = 2.3 nm
+  Total samples = 8192
+  Excess kurtosis = 21.534
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 138.652
+  Threshold = 305.035
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 396
+
+BW = 2.4 nm
+  Total samples = 8192
+  Excess kurtosis = 21.132
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 140.897
+  Threshold = 309.973
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 400
+
+BW = 2.5 nm
+  Total samples = 8192
+  Excess kurtosis = 25.337
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 150.157
+  Threshold = 330.346
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 356
+
+BW = 2.6 nm
+  Total samples = 8192
+  Excess kurtosis = 20.067
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 146.857
+  Threshold = 323.085
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 415
+
+BW = 2.7 nm
+  Total samples = 8192
+  Excess kurtosis = 19.455
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 149.751
+  Threshold = 329.453
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 424
+
+BW = 2.8 nm
+  Total samples = 8192
+  Excess kurtosis = 22.996
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 159.522
+  Threshold = 350.949
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 378
+
+BW = 2.9 nm
+  Total samples = 8192
+  Excess kurtosis = 28.430
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 168.738
+  Threshold = 371.224
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 323
+
+BW = 3.1 nm
+  Total samples = 8192
+  Excess kurtosis = 37.678
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 180.528
+  Threshold = 397.161
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 258
+
+BW = 3.2 nm
+  Total samples = 8192
+  Excess kurtosis = 36.798
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 182.925
+  Threshold = 402.435
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 262
+
+BW = 3.3 nm
+  Total samples = 8192
+  Excess kurtosis = 35.996
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 185.136
+  Threshold = 407.298
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 266
+
+BW = 3.4 nm
+  Total samples = 8192
+  Excess kurtosis = 35.262
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 187.186
+  Threshold = 411.810
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 270
+
+BW = 3.5 nm
+  Total samples = 8192
+  Excess kurtosis = 24.569
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 181.685
+  Threshold = 399.708
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 357
+
+BW = 3.6 nm
+  Total samples = 8192
+  Excess kurtosis = 33.964
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 190.927
+  Threshold = 420.039
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 277
+
+BW = 3.7 nm
+  Total samples = 8192
+  Excess kurtosis = 33.387
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 192.659
+  Threshold = 423.849
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 280
+
+BW = 3.8 nm
+  Total samples = 8192
+  Excess kurtosis = 58.464
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 196.418
+  Threshold = 432.119
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 174
+
+BW = 3.9 nm
+  Total samples = 8192
+  Excess kurtosis = 57.631
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 198.306
+  Threshold = 436.274
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 176
+
+BW = 4.1 nm
+  Total samples = 8192
+  Excess kurtosis = 31.419
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 199.103
+  Threshold = 438.027
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 294
+
+BW = 4.2 nm
+  Total samples = 8192
+  Excess kurtosis = 30.992
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 200.611
+  Threshold = 441.343
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 296
+
+BW = 4.3 nm
+  Total samples = 8192
+  Excess kurtosis = 30.585
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 202.074
+  Threshold = 444.563
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 300
+
+BW = 4.4 nm
+  Total samples = 8192
+  Excess kurtosis = 30.196
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 203.491
+  Threshold = 447.681
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 302
+
+BW = 4.5 nm
+  Total samples = 8192
+  Excess kurtosis = 53.495
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 208.915
+  Threshold = 459.613
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 187
+
+BW = 4.6 nm
+  Total samples = 8192
+  Excess kurtosis = 29.500
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 206.177
+  Threshold = 453.590
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 308
+
+BW = 4.7 nm
+  Total samples = 8192
+  Excess kurtosis = 52.340
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 212.286
+  Threshold = 467.030
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 190
+
+BW = 4.8 nm
+  Total samples = 8192
+  Excess kurtosis = 51.811
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 213.883
+  Threshold = 470.542
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 192
+
+BW = 4.9 nm
+  Total samples = 8192
+  Excess kurtosis = 51.275
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 215.606
+  Threshold = 474.332
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 194
+
+BW = 5.1 nm
+  Total samples = 8192
+  Excess kurtosis = 50.335
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 218.598
+  Threshold = 480.915
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 197
+
+BW = 5.2 nm
+  Total samples = 8192
+  Excess kurtosis = 49.894
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 220.056
+  Threshold = 484.123
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 198
+
+BW = 5.3 nm
+  Total samples = 8192
+  Excess kurtosis = 49.440
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 221.539
+  Threshold = 487.386
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 200
+
+BW = 5.4 nm
+  Total samples = 8192
+  Excess kurtosis = 48.989
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 222.998
+  Threshold = 490.596
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 202
+
+BW = 5.5 nm
+  Total samples = 8192
+  Excess kurtosis = 48.573
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 224.373
+  Threshold = 493.620
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 204
+
+BW = 5.6 nm
+  Total samples = 8192
+  Excess kurtosis = 48.177
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 225.694
+  Threshold = 496.528
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 205
+
+BW = 5.7 nm
+  Total samples = 8192
+  Excess kurtosis = 47.784
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 227.007
+  Threshold = 499.415
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 206
+
+BW = 5.8 nm
+  Total samples = 8192
+  Excess kurtosis = 47.405
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 228.305
+  Threshold = 502.271
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 207
+
+BW = 5.9 nm
+  Total samples = 8192
+  Excess kurtosis = 47.041
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 229.558
+  Threshold = 505.027
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 209
+
+BW = 6.1 nm
+  Total samples = 8192
+  Excess kurtosis = 46.348
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 231.929
+  Threshold = 510.243
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 212
+
+BW = 6.2 nm
+  Total samples = 8192
+  Excess kurtosis = 46.006
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 233.156
+  Threshold = 512.943
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 213
+
+BW = 6.3 nm
+  Total samples = 8192
+  Excess kurtosis = 45.677
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 234.284
+  Threshold = 515.424
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 215
+
+BW = 6.4 nm
+  Total samples = 8192
+  Excess kurtosis = 45.347
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 235.436
+  Threshold = 517.960
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 217
+
+BW = 6.5 nm
+  Total samples = 8192
+  Excess kurtosis = 45.025
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 236.563
+  Threshold = 520.439
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 218
+
+BW = 6.6 nm
+  Total samples = 8192
+  Excess kurtosis = 44.715
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 237.626
+  Threshold = 522.776
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 220
+
+BW = 6.7 nm
+  Total samples = 8192
+  Excess kurtosis = 44.403
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 238.671
+  Threshold = 525.076
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 221
+
+BW = 6.8 nm
+  Total samples = 8192
+  Excess kurtosis = 44.088
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 239.836
+  Threshold = 527.640
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 222
+
+BW = 6.9 nm
+  Total samples = 8192
+  Excess kurtosis = 43.784
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 240.892
+  Threshold = 529.963
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 224
+
+BW = 7.1 nm
+  Total samples = 8192
+  Excess kurtosis = 43.187
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 243.006
+  Threshold = 534.613
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 227
+
+BW = 7.2 nm
+  Total samples = 8192
+  Excess kurtosis = 42.892
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 244.017
+  Threshold = 536.837
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 228
+
+BW = 7.3 nm
+  Total samples = 8192
+  Excess kurtosis = 42.600
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 244.997
+  Threshold = 538.993
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 230
+
+BW = 7.4 nm
+  Total samples = 8192
+  Excess kurtosis = 42.312
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 245.961
+  Threshold = 541.114
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 231
+
+BW = 7.5 nm
+  Total samples = 8192
+  Excess kurtosis = 42.028
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 246.889
+  Threshold = 543.155
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 233
+
+BW = 7.6 nm
+  Total samples = 8192
+  Excess kurtosis = 41.743
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 247.808
+  Threshold = 545.177
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 235
+
+BW = 7.7 nm
+  Total samples = 8192
+  Excess kurtosis = 41.460
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 248.696
+  Threshold = 547.131
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 236
+
+BW = 7.8 nm
+  Total samples = 8191
+  Excess kurtosis = 41.176
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 249.571
+  Threshold = 549.056
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 238
+
+BW = 7.9 nm
+  Total samples = 8192
+  Excess kurtosis = 40.899
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 250.452
+  Threshold = 550.995
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 240
+
+BW = 8.1 nm
+  Total samples = 8192
+  Excess kurtosis = 40.340
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 252.141
+  Threshold = 554.711
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 243
+
+BW = 8.2 nm
+  Total samples = 8192
+  Excess kurtosis = 40.061
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 252.938
+  Threshold = 556.463
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 245
+
+BW = 8.3 nm
+  Total samples = 8192
+  Excess kurtosis = 39.797
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 253.680
+  Threshold = 558.095
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 247
+
+BW = 8.4 nm
+  Total samples = 8192
+  Excess kurtosis = 39.504
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 254.564
+  Threshold = 560.040
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 248
+
+BW = 8.5 nm
+  Total samples = 8186
+  Excess kurtosis = 39.201
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 255.480
+  Threshold = 562.056
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 250
+
+BW = 8.6 nm
+  Total samples = 8192
+  Excess kurtosis = 38.950
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 256.083
+  Threshold = 563.384
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 252
+
+BW = 8.7 nm
+  Total samples = 8191
+  Excess kurtosis = 38.655
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 256.893
+  Threshold = 565.165
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 255
+
+BW = 8.8 nm
+  Total samples = 8188
+  Excess kurtosis = 38.367
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 257.742
+  Threshold = 567.033
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 256
+
+BW = 8.9 nm
+  Total samples = 8190
+  Excess kurtosis = 38.093
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 258.380
+  Threshold = 568.435
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 259
+
+BW = 9.1 nm
+  Total samples = 8191
+  Excess kurtosis = 37.537
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 259.755
+  Threshold = 571.460
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 262
+
+BW = 9.2 nm
+  Total samples = 8192
+  Excess kurtosis = 37.255
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 260.452
+  Threshold = 572.995
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 265
+
+BW = 9.3 nm
+  Total samples = 8183
+  Excess kurtosis = 36.919
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 261.416
+  Threshold = 575.116
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 266
+
+BW = 9.4 nm
+  Total samples = 8189
+  Excess kurtosis = 36.671
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 261.847
+  Threshold = 576.063
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 268
+
+BW = 9.5 nm
+  Total samples = 8188
+  Excess kurtosis = 36.365
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 262.541
+  Threshold = 577.591
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 271
+
+BW = 9.6 nm
+  Total samples = 8188
+  Excess kurtosis = 36.075
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 263.147
+  Threshold = 578.922
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 273
+
+BW = 9.7 nm
+  Total samples = 8192
+  Excess kurtosis = 35.813
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 263.672
+  Threshold = 580.079
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 275
+
+BW = 9.8 nm
+  Total samples = 8188
+  Excess kurtosis = 35.485
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 264.442
+  Threshold = 581.772
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 277
+
+BW = 9.9 nm
+  Total samples = 8188
+  Excess kurtosis = 35.200
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 265.025
+  Threshold = 583.055
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 280
+
+BW = 10.1 nm
+  Total samples = 8187
+  Excess kurtosis = 34.598
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 266.250
+  Threshold = 585.750
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 285
+
+BW = 10.2 nm
+  Total samples = 8189
+  Excess kurtosis = 34.297
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 266.889
+  Threshold = 587.157
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 287
+
+BW = 10.3 nm
+  Total samples = 8179
+  Excess kurtosis = 33.930
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 267.887
+  Threshold = 589.350
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 289
+
+BW = 10.4 nm
+  Total samples = 8192
+  Excess kurtosis = 33.698
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 268.034
+  Threshold = 589.674
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 292
+
+BW = 10.5 nm
+  Total samples = 8179
+  Excess kurtosis = 33.336
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 268.996
+  Threshold = 591.791
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 294
+
+BW = 10.6 nm
+  Total samples = 8184
+  Excess kurtosis = 33.017
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 269.446
+  Threshold = 592.782
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 297
+
+BW = 10.7 nm
+  Total samples = 8183
+  Excess kurtosis = 32.729
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 270.047
+  Threshold = 594.103
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 300
+
+BW = 10.8 nm
+  Total samples = 8183
+  Excess kurtosis = 32.410
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 270.626
+  Threshold = 595.376
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 302
+
+BW = 10.9 nm
+  Total samples = 8181
+  Excess kurtosis = 32.068
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 271.221
+  Threshold = 596.686
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 305
+
+BW = 11.1 nm
+  Total samples = 8189
+  Excess kurtosis = 31.455
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 272.162
+  Threshold = 598.757
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 310
+
+BW = 11.2 nm
+  Total samples = 8187
+  Excess kurtosis = 31.141
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 272.672
+  Threshold = 599.879
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 313
+
+BW = 11.3 nm
+  Total samples = 8185
+  Excess kurtosis = 30.785
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 273.360
+  Threshold = 601.392
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 316
+
+BW = 11.4 nm
+  Total samples = 8183
+  Excess kurtosis = 30.487
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 273.951
+  Threshold = 602.693
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 319
+
+BW = 11.5 nm
+  Total samples = 8184
+  Excess kurtosis = 30.149
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 274.524
+  Threshold = 603.954
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 322
+
+BW = 11.6 nm
+  Total samples = 8186
+  Excess kurtosis = 29.842
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 275.045
+  Threshold = 605.099
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 325
+
+BW = 11.7 nm
+  Total samples = 8185
+  Excess kurtosis = 29.477
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 275.598
+  Threshold = 606.315
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 328
+
+BW = 11.8 nm
+  Total samples = 8179
+  Excess kurtosis = 29.172
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 276.214
+  Threshold = 607.670
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 330
+
+BW = 11.9 nm
+  Total samples = 8185
+  Excess kurtosis = 28.887
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 276.498
+  Threshold = 608.297
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 334
+
+BW = 12.1 nm
+  Total samples = 8184
+  Excess kurtosis = 28.233
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 277.500
+  Threshold = 610.500
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 339
+
+BW = 12.2 nm
+  Total samples = 8192
+  Excess kurtosis = 23.140
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 277.210
+  Threshold = 609.863
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 395
+
+BW = 12.3 nm
+  Total samples = 8192
+  Excess kurtosis = 32.870
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 283.274
+  Threshold = 623.202
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 336
+
+BW = 12.4 nm
+  Total samples = 8182
+  Excess kurtosis = 27.296
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 278.990
+  Threshold = 613.778
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 348
+
+BW = 12.5 nm
+  Total samples = 8192
+  Excess kurtosis = 25.264
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 280.677
+  Threshold = 617.490
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 397
+
+BW = 12.6 nm
+  Total samples = 8192
+  Excess kurtosis = 25.916
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 283.509
+  Threshold = 623.720
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 414
+
+BW = 12.7 nm
+  Total samples = 8192
+  Excess kurtosis = 31.923
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 287.273
+  Threshold = 632.001
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 393
+
+BW = 12.8 nm
+  Total samples = 8192
+  Excess kurtosis = 24.093
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 272.493
+  Threshold = 599.485
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 400
+
+BW = 12.9 nm
+  Total samples = 8192
+  Excess kurtosis = 23.127
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 281.402
+  Threshold = 619.084
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 370
+
+BW = 13.1 nm
+  Total samples = 8192
+  Excess kurtosis = 28.410
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 269.788
+  Threshold = 593.534
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 399
+
+BW = 13.2 nm
+  Total samples = 8192
+  Excess kurtosis = 29.330
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 285.743
+  Threshold = 628.634
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 368
+
+BW = 13.3 nm
+  Total samples = 8192
+  Excess kurtosis = 27.578
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 283.015
+  Threshold = 622.634
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 356
+
+BW = 13.4 nm
+  Total samples = 8192
+  Excess kurtosis = 29.315
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 290.065
+  Threshold = 638.144
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 392
+
+BW = 13.5 nm
+  Total samples = 8192
+  Excess kurtosis = 26.359
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 286.266
+  Threshold = 629.786
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 392
+
+BW = 13.6 nm
+  Total samples = 8192
+  Excess kurtosis = 29.781
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 284.001
+  Threshold = 624.802
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 433
+
+BW = 13.7 nm
+  Total samples = 8192
+  Excess kurtosis = 28.089
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 296.203
+  Threshold = 651.646
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 326
+
+BW = 13.8 nm
+  Total samples = 8192
+  Excess kurtosis = 24.821
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 286.265
+  Threshold = 629.783
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 446
+
+BW = 13.9 nm
+  Total samples = 8192
+  Excess kurtosis = 31.107
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 283.866
+  Threshold = 624.505
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 389
+
+BW = 14.1 nm
+  Total samples = 8192
+  Excess kurtosis = 23.982
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 284.282
+  Threshold = 625.419
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 410
+
+BW = 14.2 nm
+  Total samples = 8192
+  Excess kurtosis = 21.923
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 271.993
+  Threshold = 598.384
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 431
+
+BW = 14.3 nm
+  Total samples = 8192
+  Excess kurtosis = 21.231
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 282.611
+  Threshold = 621.745
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 419
+
+BW = 14.4 nm
+  Total samples = 8192
+  Excess kurtosis = 22.962
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 275.970
+  Threshold = 607.133
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 434
+
+BW = 14.5 nm
+  Total samples = 8192
+  Excess kurtosis = 23.130
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 290.144
+  Threshold = 638.316
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 418
+
+BW = 14.6 nm
+  Total samples = 8192
+  Excess kurtosis = 31.341
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 279.000
+  Threshold = 613.799
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 397
+
+BW = 14.7 nm
+  Total samples = 8192
+  Excess kurtosis = 26.795
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 296.682
+  Threshold = 652.701
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 387
+
+BW = 14.8 nm
+  Total samples = 8192
+  Excess kurtosis = 23.822
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 292.036
+  Threshold = 642.478
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 423
+
+BW = 14.9 nm
+  Total samples = 8192
+  Excess kurtosis = 29.183
+  Regime: Intermittent / Heavy-tailed
+  BW-level SWH = 288.304
+  Threshold = 634.269
+  Thr/SWH = 2.20
+    Figure 1 -> Rogue events: 393
+

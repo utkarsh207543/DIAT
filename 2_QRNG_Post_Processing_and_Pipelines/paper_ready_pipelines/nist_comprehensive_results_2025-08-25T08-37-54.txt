@@ -1,0 +1,100 @@
+================================================================================
+NIST 800-22 STATISTICAL TEST SUITE - COMPREHENSIVE RESULTS
+================================================================================
+Generated: 2025-08-25 14:07:52
+Institution: Defence Institute of Advanced Technology (DIAT)
+Test Suite Version: NIST SP 800-22 Rev. 1a
+================================================================================
+
+ASSESSMENT SUMMARY
+--------------------------------------------------
+Data Length: 400,000 bits
+Total Tests Executed: 16
+Tests Passed: 16
+Tests Failed: 0
+Pass Rate: 100.0%
+Overall Assessment: EXCELLENT - High quality randomness
+
+UPLOADED BINARY DATA
+--------------------------------------------------
+Total Length: 400,000 bits
+Data Preview (First 500 bits):
+01110100100010110000100110101010000010111100101001100000010101000001110100010101101000110100001100000001101101010010001100000001111100010010101011110010000110111101011001000100111111110000101111011101001001011010001111010101000010101011110000010011101101101100011100100110100110010110000001011000101111001011011001111011111011001000001001011111001111011010110010100100101101100000010000101011010000010111111010010000100010110001010001011101010100000101011101101011001100001001110010010101011111101101
+... (showing first 500 of 400,000 total bits)
+
+DETAILED TEST RESULTS WITH P-VALUES
+--------------------------------------------------
+Test Name                                          P-Value         Result          Status    
+------------------------------------------------------------------------------------------
+01. Frequency (Monobit) Test                       0.096241        Random          PASSED    
+02. Frequency Test within a Block                  0.373337        Random          PASSED    
+03. Runs Test                                      0.477515        Random          PASSED    
+04. Test for the Longest Run of Ones in a Block    0.244354        Random          PASSED    
+05. Binary Matrix Rank Test                        0.911449        Random          PASSED    
+06. Discrete Fourier Transform (Spectral) Test     0.120538        Random          PASSED    
+07. Non-overlapping Template Matching Test         0.234785        Random          PASSED    
+08. Overlapping Template Matching Test             0.985691        Random          PASSED    
+09. Maurer's "Universal Statistical" Test          0.222062        Random          PASSED    
+10. Linear Complexity Test                         0.201251        Random          PASSED    
+11. Serial Test (1)                                0.624629             Random         
+11. Serial Test (2)                                0.761304             Random         
+12. Approximate Entropy Test                       0.713911        Random          PASSED    
+13. Cumulative Sums Test (Forward)                 0.028888        Random          PASSED    
+14. Cumulative Sums Test (Backward)                0.072622        Random          PASSED    
+15. Random Excursions Test:
+  State -4         0.960414        Random          PASSED    
+  State -3         0.922510        Random          PASSED    
+  State -2         0.792496        Random          PASSED    
+  State -1         0.407725        Random          PASSED    
+  State +1         0.530643        Random          PASSED    
+  State +2         0.216335        Random          PASSED    
+  State +3         0.946560        Random          PASSED    
+  State +4         0.510058        Random          PASSED    
+16. Random Excursions Variant Test:
+  State -9.0       0.977302        Random          PASSED    
+  State -8.0       0.975836        Random          PASSED    
+  State -7.0       0.803020        Random          PASSED    
+  State -6.0       0.579489        Random          PASSED    
+  State -5.0       0.354737        Random          PASSED    
+  State -4.0       0.442168        Random          PASSED    
+  State -3.0       0.484241        Random          PASSED    
+  State -2.0       0.456263        Random          PASSED    
+  State -1.0       0.754414        Random          PASSED    
+  State +1.0       0.906615        Random          PASSED    
+  State +2.0       0.684470        Random          PASSED    
+  State +3.0       0.972100        Random          PASSED    
+  State +4.0       0.790214        Random          PASSED    
+  State +5.0       0.602106        Random          PASSED    
+  State +6.0       0.750234        Random          PASSED    
+  State +7.0       0.318394        Random          PASSED    
+  State +8.0       0.253916        Random          PASSED    
+  State +9.0       0.283864        Random          PASSED    
+
+================================================================================
+ASSESSMENT LEVELS AND INTERPRETATION
+================================================================================
+Pass Rate Interpretation:
+• EXCELLENT (≥80%): High quality randomness, suitable for cryptographic use
+• GOOD (≥60%): Acceptable randomness, suitable for most applications
+• FAIR (≥40%): Moderate randomness, review generator implementation
+• POOR (<40%): Significant randomness deficiencies, not suitable for security
+
+P-Value Interpretation:
+• P-Value ≥ 0.01: Test PASSED (sequence appears random)
+• P-Value < 0.01: Test FAILED (sequence shows non-random patterns)
+
+Current Assessment Details:
+• Your data achieved a 100.0% pass rate
+• Assessment Level: EXCELLENT
+• Interpretation: High quality randomness
+
+RECOMMENDATIONS:
+✓ Excellent randomness quality detected
+✓ Data is suitable for cryptographic applications
+✓ Random number generator appears to be functioning correctly
+
+================================================================================
+Report generated by NIST 800-22 Test Suite Web Interface
+Defence Institute of Advanced Technology (DIAT)
+Made by Utkarsh Kumar Singh
+================================================================================

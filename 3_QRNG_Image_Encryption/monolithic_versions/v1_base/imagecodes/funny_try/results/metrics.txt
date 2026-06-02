@@ -1,0 +1,28 @@
+=== ENTROPY ANALYSIS ===
+Initial entropy (Plain):    7.351072
+Encrypted entropy (Cipher): 7.813558
+Final entropy (Decrypted):  7.351072
+
+=== STRUCTURAL SIMILARITY (SSIM) ===
+SSIM (Original vs Encrypted): 0.012558
+SSIM (Original vs Decrypted): 1.000000
+
+=== RECONSTRUCTION QUALITY ===
+MSE:  0.0
+PSNR: inf
+
+=== TIMING ===
+Encryption time: 3.157198667526245
+Decryption time: 3.1630501747131348
+=== CORRELATION COEFFICIENTS ===
+Original Image:
+  Horizontal: 0.9922520269708713
+  Vertical:   0.9911191239815689
+  Diagonal:   0.9855613325229184
+
+Encrypted Image:
+  Horizontal: -0.0016454028727513788
+  Vertical:   -0.0014912180565651346
+  Diagonal:   -0.00044759200974379005
+
+=== BASELINE ===

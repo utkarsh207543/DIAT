@@ -1,0 +1,96 @@
+QRNG POST-PROCESSING PIPELINE REPORT
+======================================================================
+
+Input file: Utkarsh_QRNG_10.txt
+Processing time: 2025-07-31 11:18:01
+Target bits per technique: 500,000
+Successful techniques: 12
+
+PIPELINE WORKFLOW:
+------------------------------
+1. Raw QRNG data parsed and saved
+2. Von Neumann debiasing applied (base for all techniques)
+3. Each technique: Base -> Process -> Amplify -> Save
+4. Individual processing with progress tracking
+5. Final results saved with technique names
+
+FINAL RESULTS SUMMARY:
+------------------------------
+
+SHA256:
+  Output bits: 500,000
+  Entropy: 1.000000
+  Balance: 0.499880
+  Files: SHA256_500K.txt, SHA256_500K.bin
+
+SHA3:
+  Output bits: 500,000
+  Entropy: 1.000000
+  Balance: 0.499782
+  Files: SHA3_500K.txt, SHA3_500K.bin
+
+BLAKE2:
+  Output bits: 500,000
+  Entropy: 0.999999
+  Balance: 0.500484
+  Files: BLAKE2_500K.txt, BLAKE2_500K.bin
+
+Peres:
+  Output bits: 500,000
+  Entropy: 0.999998
+  Balance: 0.499188
+  Files: Peres_500K.txt, Peres_500K.bin
+
+MultibitDebiasing:
+  Output bits: 500,000
+  Entropy: 0.999999
+  Balance: 0.500590
+  Files: MultibitDebiasing_500K.txt, MultibitDebiasing_500K.bin
+
+AdaptiveDebiasing:
+  Output bits: 500,000
+  Entropy: 1.000000
+  Balance: 0.499936
+  Files: AdaptiveDebiasing_500K.txt, AdaptiveDebiasing_500K.bin
+
+TrevisanExtractor:
+  Output bits: 500,000
+  Entropy: 0.999991
+  Balance: 0.498250
+  Files: TrevisanExtractor_500K.txt, TrevisanExtractor_500K.bin
+
+LeftoverHashLemma:
+  Output bits: 500,000
+  Entropy: 1.000000
+  Balance: 0.499686
+  Files: LeftoverHashLemma_500K.txt, LeftoverHashLemma_500K.bin
+
+LFSRExtractor:
+  Output bits: 500,000
+  Entropy: 0.999999
+  Balance: 0.499570
+  Files: LFSRExtractor_500K.txt, LFSRExtractor_500K.bin
+
+XORCombiner:
+  Output bits: 500,000
+  Entropy: 1.000000
+  Balance: 0.499894
+  Files: XORCombiner_500K.txt, XORCombiner_500K.bin
+
+FibonacciXOR:
+  Output bits: 500,000
+  Entropy: 1.000000
+  Balance: 0.500000
+  Files: FibonacciXOR_500K.txt, FibonacciXOR_500K.bin
+
+AdaptiveXOR:
+  Output bits: 500,000
+  Entropy: 1.000000
+  Balance: 0.499894
+  Files: AdaptiveXOR_500K.txt, AdaptiveXOR_500K.bin
+
+NIST TEST PREPARATION:
+------------------------------
+All .bin files are ready for NIST Statistical Test Suite
+Each file contains exactly 500,000 bits (unless insufficient source data)
+Use these files to compare randomness quality across techniques

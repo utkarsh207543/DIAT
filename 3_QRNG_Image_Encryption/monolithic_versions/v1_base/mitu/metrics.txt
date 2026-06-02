@@ -1,0 +1,91 @@
+======================================================================
+IMAGE ENCRYPTION SECURITY ANALYSIS REPORT
+======================================================================
+
+=== ENTROPY ANALYSIS ===
+Initial entropy (Plain):    7.347873
+Encrypted entropy (Cipher): 7.812464
+Final entropy (Decrypted):  7.347873
+
+=== STRUCTURAL SIMILARITY (SSIM) ===
+SSIM (Original vs Encrypted): 0.012385
+SSIM (Original vs Decrypted): 1.000000
+
+=== RECONSTRUCTION QUALITY ===
+MSE:  0.0
+PSNR: inf
+
+=== TIMING ===
+Encryption time: 3.072010 seconds
+Decryption time: 3.036205 seconds
+
+=== CORRELATION COEFFICIENTS ===
+Original Image:
+  Horizontal: 0.9934128670646
+  Vertical:   0.991033565349039
+  Diagonal:   0.9866511573006208
+
+Encrypted Image:
+  Horizontal: -0.0006801612839724441
+  Vertical:   -0.0003165903357235869
+  Diagonal:   -0.0007827361558674885
+
+=== BLOCKING ATTACK ANALYSIS ===
+Attack Parameters:
+  Block Ratio: 0.25 (25% of image)
+  Block Size: 235x231 pixels
+
+Results:
+  MSE:  2379.680464561215
+  PSNR: 14.365617154897048
+  SSIM: 0.1508030025547938
+
+=== NOISE ATTACK ANALYSIS ===
+Salt & Pepper Noise:
+Attack Parameters:
+  Noise Amount: 0.05 (5% of pixels)
+  Affected Pixels: ~43615 pixels
+
+Results:
+  MSE:  2330.950744405353
+  PSNR: 14.455472643782084
+  SSIM: 0.1378384812302496
+
+Gaussian Noise:
+Attack Parameters:
+  Variance: 0.001
+  Standard Deviation: 0.0316
+  Distribution: Normal(0, 0.001)
+
+Results:
+  MSE:  2080.9577889435714
+  PSNR: 14.948170899858406
+  SSIM: 0.1549726372253309
+
+QRNG-based Noise:
+Attack Parameters:
+  Noise Strength: 0.1 (10% of max intensity)
+  Noise Range: ±25 intensity levels
+  Entropy Source: Hardware QRNG
+
+Results:
+  MSE:  2313.8569070292915
+  PSNR: 14.487438629544702
+  SSIM: 0.11294521083346566
+
+=== DIFFERENTIAL ATTACK ANALYSIS ===
+NPCR (%): 99.00711561411292
+UACI (%): 20.370233478467973
+
+=== KEY SENSITIVITY ANALYSIS ===
+NPCR (%): 99.00711561411292
+UACI (%): 20.370233478467973
+SSIM (Cipher vs Cipher'): 0.46888485460180673
+
+=== BRUTE-FORCE ATTACK ANALYSIS ===
+Key space size: 2^14944
+Assumed attack rate: 10^12 keys/sec
+log10(Time in seconds): 4486.59
+log10(Time in years):   4479.09
+Conclusion: Brute-force attack is computationally infeasible.
+

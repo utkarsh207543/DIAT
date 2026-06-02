@@ -1,0 +1,468 @@
+BW = 0.1 nm
+  Figure 2 -> Rogue events: 21 (SWH=0.009, Thr=0.037, Thr/SWH=4.00)
+
+BW = 0.2 nm
+  Figure 1 -> Rogue events: 169 (SWH=165.231, Thr=660.925, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 53 (SWH=0.024, Thr=0.095, Thr/SWH=4.00)
+
+BW = 0.3 nm
+  Figure 1 -> Rogue events: 159 (SWH=141.557, Thr=566.230, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 85 (SWH=0.041, Thr=0.166, Thr/SWH=4.00)
+
+BW = 0.4 nm
+  Figure 1 -> Rogue events: 170 (SWH=168.373, Thr=673.492, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 72 (SWH=0.025, Thr=0.102, Thr/SWH=4.00)
+
+BW = 0.5 nm
+  Figure 1 -> Rogue events: 173 (SWH=157.225, Thr=628.898, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 89 (SWH=0.033, Thr=0.132, Thr/SWH=4.00)
+
+BW = 0.6 nm
+  Figure 1 -> Rogue events: 167 (SWH=151.253, Thr=605.014, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 105 (SWH=0.043, Thr=0.170, Thr/SWH=4.00)
+
+BW = 0.7 nm
+  Figure 1 -> Rogue events: 179 (SWH=166.461, Thr=665.846, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 96 (SWH=0.031, Thr=0.124, Thr/SWH=4.00)
+
+BW = 0.8 nm
+  Figure 1 -> Rogue events: 178 (SWH=165.812, Thr=663.247, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 108 (SWH=0.038, Thr=0.152, Thr/SWH=4.00)
+
+BW = 0.9 nm
+  Figure 1 -> Rogue events: 157 (SWH=193.634, Thr=774.536, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 122 (SWH=0.054, Thr=0.216, Thr/SWH=4.00)
+
+BW = 1.1 nm
+  Figure 1 -> Rogue events: 163 (SWH=213.749, Thr=854.997, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 132 (SWH=0.062, Thr=0.250, Thr/SWH=4.00)
+
+BW = 1.2 nm
+  Figure 1 -> Rogue events: 170 (SWH=215.253, Thr=861.011, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 135 (SWH=0.085, Thr=0.340, Thr/SWH=4.00)
+
+BW = 1.3 nm
+  Figure 1 -> Rogue events: 151 (SWH=207.772, Thr=831.089, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 143 (SWH=0.133, Thr=0.532, Thr/SWH=4.00)
+
+BW = 1.4 nm
+  Figure 1 -> Rogue events: 150 (SWH=214.507, Thr=858.029, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 138 (SWH=0.151, Thr=0.604, Thr/SWH=4.00)
+
+BW = 1.5 nm
+  Figure 1 -> Rogue events: 152 (SWH=225.413, Thr=901.651, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 121 (SWH=0.171, Thr=0.682, Thr/SWH=4.00)
+
+BW = 1.6 nm
+  Figure 1 -> Rogue events: 183 (SWH=237.344, Thr=949.378, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 130 (SWH=0.096, Thr=0.383, Thr/SWH=4.00)
+
+BW = 1.7 nm
+  Figure 1 -> Rogue events: 183 (SWH=242.046, Thr=968.183, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 125 (SWH=0.108, Thr=0.433, Thr/SWH=4.00)
+
+BW = 1.8 nm
+  Figure 1 -> Rogue events: 184 (SWH=249.328, Thr=997.310, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 119 (SWH=0.111, Thr=0.445, Thr/SWH=4.00)
+
+BW = 1.9 nm
+  Figure 1 -> Rogue events: 184 (SWH=258.284, Thr=1033.134, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 117 (SWH=0.119, Thr=0.475, Thr/SWH=4.00)
+
+BW = 2.1 nm
+  Figure 1 -> Rogue events: 159 (SWH=268.579, Thr=1074.317, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 107 (SWH=0.066, Thr=0.264, Thr/SWH=4.00)
+
+BW = 2.2 nm
+  Figure 1 -> Rogue events: 187 (SWH=275.476, Thr=1101.905, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 110 (SWH=0.087, Thr=0.348, Thr/SWH=4.00)
+
+BW = 2.3 nm
+  Figure 1 -> Rogue events: 149 (SWH=277.242, Thr=1108.967, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 112 (SWH=0.063, Thr=0.253, Thr/SWH=4.00)
+
+BW = 2.4 nm
+  Figure 1 -> Rogue events: 141 (SWH=281.714, Thr=1126.855, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 121 (SWH=0.080, Thr=0.320, Thr/SWH=4.00)
+
+BW = 2.5 nm
+  Figure 1 -> Rogue events: 180 (SWH=300.225, Thr=1200.900, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 111 (SWH=0.089, Thr=0.358, Thr/SWH=4.00)
+
+BW = 2.6 nm
+  Figure 1 -> Rogue events: 119 (SWH=293.647, Thr=1174.589, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 117 (SWH=0.067, Thr=0.267, Thr/SWH=4.00)
+
+BW = 2.7 nm
+  Figure 1 -> Rogue events: 102 (SWH=299.444, Thr=1197.776, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 108 (SWH=0.059, Thr=0.236, Thr/SWH=4.00)
+
+BW = 2.8 nm
+  Figure 1 -> Rogue events: 166 (SWH=318.953, Thr=1275.812, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 107 (SWH=0.092, Thr=0.368, Thr/SWH=4.00)
+
+BW = 2.9 nm
+  Figure 1 -> Rogue events: 191 (SWH=337.364, Thr=1349.457, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 111 (SWH=0.112, Thr=0.450, Thr/SWH=4.00)
+
+BW = 3.1 nm
+  Figure 1 -> Rogue events: 184 (SWH=360.867, Thr=1443.468, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 69 (SWH=0.188, Thr=0.753, Thr/SWH=4.00)
+
+BW = 3.2 nm
+  Figure 1 -> Rogue events: 187 (SWH=365.662, Thr=1462.650, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 73 (SWH=0.188, Thr=0.752, Thr/SWH=4.00)
+
+BW = 3.3 nm
+  Figure 1 -> Rogue events: 188 (SWH=370.082, Thr=1480.328, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 73 (SWH=0.189, Thr=0.756, Thr/SWH=4.00)
+
+BW = 3.4 nm
+  Figure 1 -> Rogue events: 190 (SWH=374.184, Thr=1496.736, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 74 (SWH=0.189, Thr=0.755, Thr/SWH=4.00)
+
+BW = 3.5 nm
+  Figure 1 -> Rogue events: 185 (SWH=363.256, Thr=1453.022, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 100 (SWH=0.115, Thr=0.461, Thr/SWH=4.00)
+
+BW = 3.6 nm
+  Figure 1 -> Rogue events: 191 (SWH=381.664, Thr=1526.655, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 75 (SWH=0.190, Thr=0.761, Thr/SWH=4.00)
+
+BW = 3.7 nm
+  Figure 1 -> Rogue events: 192 (SWH=385.127, Thr=1540.508, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 75 (SWH=0.191, Thr=0.762, Thr/SWH=4.00)
+
+BW = 3.8 nm
+  Figure 1 -> Rogue events: 146 (SWH=392.348, Thr=1569.392, Thr/SWH=4.00)
+
+BW = 3.9 nm
+  Figure 1 -> Rogue events: 148 (SWH=396.122, Thr=1584.489, Thr/SWH=4.00)
+
+BW = 4.1 nm
+  Figure 1 -> Rogue events: 196 (SWH=398.013, Thr=1592.052, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 78 (SWH=0.194, Thr=0.774, Thr/SWH=4.00)
+
+BW = 4.2 nm
+  Figure 1 -> Rogue events: 196 (SWH=401.027, Thr=1604.110, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 77 (SWH=0.194, Thr=0.776, Thr/SWH=4.00)
+
+BW = 4.3 nm
+  Figure 1 -> Rogue events: 196 (SWH=403.954, Thr=1615.818, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 79 (SWH=0.193, Thr=0.773, Thr/SWH=4.00)
+
+BW = 4.4 nm
+  Figure 1 -> Rogue events: 197 (SWH=406.788, Thr=1627.150, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 81 (SWH=0.195, Thr=0.779, Thr/SWH=4.00)
+
+BW = 4.5 nm
+  Figure 1 -> Rogue events: 155 (SWH=417.327, Thr=1669.307, Thr/SWH=4.00)
+
+BW = 4.6 nm
+  Figure 1 -> Rogue events: 198 (SWH=412.159, Thr=1648.637, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 81 (SWH=0.195, Thr=0.780, Thr/SWH=4.00)
+
+BW = 4.7 nm
+  Figure 1 -> Rogue events: 157 (SWH=424.066, Thr=1696.263, Thr/SWH=4.00)
+
+BW = 4.8 nm
+  Figure 1 -> Rogue events: 159 (SWH=427.257, Thr=1709.027, Thr/SWH=4.00)
+
+BW = 4.9 nm
+  Figure 1 -> Rogue events: 159 (SWH=430.701, Thr=1722.803, Thr/SWH=4.00)
+
+BW = 5.1 nm
+  Figure 1 -> Rogue events: 161 (SWH=436.680, Thr=1746.722, Thr/SWH=4.00)
+
+BW = 5.2 nm
+  Figure 1 -> Rogue events: 162 (SWH=439.596, Thr=1758.385, Thr/SWH=4.00)
+
+BW = 5.3 nm
+  Figure 1 -> Rogue events: 163 (SWH=442.563, Thr=1770.252, Thr/SWH=4.00)
+
+BW = 5.4 nm
+  Figure 1 -> Rogue events: 164 (SWH=445.481, Thr=1781.923, Thr/SWH=4.00)
+
+BW = 5.5 nm
+  Figure 1 -> Rogue events: 165 (SWH=448.229, Thr=1792.917, Thr/SWH=4.00)
+
+BW = 5.6 nm
+  Figure 1 -> Rogue events: 166 (SWH=450.873, Thr=1803.491, Thr/SWH=4.00)
+
+BW = 5.7 nm
+  Figure 1 -> Rogue events: 167 (SWH=453.496, Thr=1813.985, Thr/SWH=4.00)
+
+BW = 5.8 nm
+  Figure 1 -> Rogue events: 168 (SWH=456.092, Thr=1824.366, Thr/SWH=4.00)
+
+BW = 5.9 nm
+  Figure 1 -> Rogue events: 168 (SWH=458.596, Thr=1834.386, Thr/SWH=4.00)
+
+BW = 6.1 nm
+  Figure 1 -> Rogue events: 169 (SWH=463.335, Thr=1853.340, Thr/SWH=4.00)
+
+BW = 6.2 nm
+  Figure 1 -> Rogue events: 170 (SWH=465.788, Thr=1863.150, Thr/SWH=4.00)
+
+BW = 6.3 nm
+  Figure 1 -> Rogue events: 171 (SWH=468.042, Thr=1872.170, Thr/SWH=4.00)
+
+BW = 6.4 nm
+  Figure 1 -> Rogue events: 172 (SWH=470.346, Thr=1881.385, Thr/SWH=4.00)
+
+BW = 6.5 nm
+  Figure 1 -> Rogue events: 172 (SWH=472.600, Thr=1890.399, Thr/SWH=4.00)
+
+BW = 6.6 nm
+  Figure 1 -> Rogue events: 173 (SWH=474.725, Thr=1898.898, Thr/SWH=4.00)
+
+BW = 6.7 nm
+  Figure 1 -> Rogue events: 173 (SWH=476.815, Thr=1907.260, Thr/SWH=4.00)
+
+BW = 6.8 nm
+  Figure 1 -> Rogue events: 174 (SWH=479.146, Thr=1916.583, Thr/SWH=4.00)
+
+BW = 6.9 nm
+  Figure 1 -> Rogue events: 175 (SWH=481.258, Thr=1925.031, Thr/SWH=4.00)
+
+BW = 7.1 nm
+  Figure 1 -> Rogue events: 176 (SWH=485.485, Thr=1941.939, Thr/SWH=4.00)
+
+BW = 7.2 nm
+  Figure 1 -> Rogue events: 176 (SWH=487.506, Thr=1950.025, Thr/SWH=4.00)
+
+BW = 7.3 nm
+  Figure 1 -> Rogue events: 176 (SWH=489.466, Thr=1957.864, Thr/SWH=4.00)
+
+BW = 7.4 nm
+  Figure 1 -> Rogue events: 177 (SWH=491.394, Thr=1965.577, Thr/SWH=4.00)
+
+BW = 7.5 nm
+  Figure 1 -> Rogue events: 177 (SWH=493.259, Thr=1973.035, Thr/SWH=4.00)
+
+BW = 7.6 nm
+  Figure 1 -> Rogue events: 178 (SWH=495.116, Thr=1980.464, Thr/SWH=4.00)
+
+BW = 7.7 nm
+  Figure 1 -> Rogue events: 178 (SWH=496.910, Thr=1987.641, Thr/SWH=4.00)
+
+BW = 7.8 nm
+  Figure 1 -> Rogue events: 179 (SWH=498.677, Thr=1994.709, Thr/SWH=4.00)
+
+BW = 7.9 nm
+  Figure 1 -> Rogue events: 179 (SWH=500.456, Thr=2001.823, Thr/SWH=4.00)
+
+BW = 8.1 nm
+  Figure 1 -> Rogue events: 180 (SWH=503.861, Thr=2015.443, Thr/SWH=4.00)
+
+BW = 8.2 nm
+  Figure 1 -> Rogue events: 180 (SWH=505.466, Thr=2021.862, Thr/SWH=4.00)
+
+BW = 8.3 nm
+  Figure 1 -> Rogue events: 181 (SWH=506.960, Thr=2027.840, Thr/SWH=4.00)
+
+BW = 8.4 nm
+  Figure 1 -> Rogue events: 181 (SWH=508.739, Thr=2034.955, Thr/SWH=4.00)
+
+BW = 8.5 nm
+  Figure 1 -> Rogue events: 181 (SWH=510.206, Thr=2040.824, Thr/SWH=4.00)
+
+BW = 8.6 nm
+  Figure 1 -> Rogue events: 181 (SWH=511.796, Thr=2047.182, Thr/SWH=4.00)
+
+BW = 8.7 nm
+  Figure 1 -> Rogue events: 182 (SWH=513.423, Thr=2053.690, Thr/SWH=4.00)
+
+BW = 8.8 nm
+  Figure 1 -> Rogue events: 183 (SWH=514.938, Thr=2059.752, Thr/SWH=4.00)
+
+BW = 8.9 nm
+  Figure 1 -> Rogue events: 182 (SWH=516.408, Thr=2065.630, Thr/SWH=4.00)
+
+BW = 9.1 nm
+  Figure 1 -> Rogue events: 183 (SWH=519.167, Thr=2076.667, Thr/SWH=4.00)
+
+BW = 9.2 nm
+  Figure 1 -> Rogue events: 184 (SWH=520.565, Thr=2082.261, Thr/SWH=4.00)
+
+BW = 9.3 nm
+  Figure 1 -> Rogue events: 183 (SWH=521.923, Thr=2087.692, Thr/SWH=4.00)
+
+BW = 9.4 nm
+  Figure 1 -> Rogue events: 183 (SWH=523.169, Thr=2092.674, Thr/SWH=4.00)
+
+BW = 9.5 nm
+  Figure 1 -> Rogue events: 183 (SWH=524.560, Thr=2098.239, Thr/SWH=4.00)
+
+BW = 9.6 nm
+  Figure 1 -> Rogue events: 184 (SWH=525.771, Thr=2103.083, Thr/SWH=4.00)
+
+BW = 9.7 nm
+  Figure 1 -> Rogue events: 184 (SWH=527.016, Thr=2108.062, Thr/SWH=4.00)
+
+BW = 9.8 nm
+  Figure 1 -> Rogue events: 183 (SWH=528.362, Thr=2113.448, Thr/SWH=4.00)
+
+BW = 9.9 nm
+  Figure 1 -> Rogue events: 184 (SWH=529.528, Thr=2118.112, Thr/SWH=4.00)
+
+BW = 10.1 nm
+  Figure 1 -> Rogue events: 183 (SWH=531.975, Thr=2127.902, Thr/SWH=4.00)
+
+BW = 10.2 nm
+  Figure 1 -> Rogue events: 183 (SWH=533.253, Thr=2133.013, Thr/SWH=4.00)
+
+BW = 10.3 nm
+  Figure 1 -> Rogue events: 184 (SWH=534.657, Thr=2138.630, Thr/SWH=4.00)
+
+BW = 10.4 nm
+  Figure 1 -> Rogue events: 183 (SWH=535.735, Thr=2142.938, Thr/SWH=4.00)
+
+BW = 10.5 nm
+  Figure 1 -> Rogue events: 183 (SWH=536.868, Thr=2147.471, Thr/SWH=4.00)
+
+BW = 10.6 nm
+  Figure 1 -> Rogue events: 183 (SWH=538.161, Thr=2152.645, Thr/SWH=4.00)
+
+BW = 10.7 nm
+  Figure 1 -> Rogue events: 182 (SWH=539.160, Thr=2156.641, Thr/SWH=4.00)
+
+BW = 10.8 nm
+  Figure 1 -> Rogue events: 183 (SWH=540.313, Thr=2161.252, Thr/SWH=4.00)
+
+BW = 10.9 nm
+  Figure 1 -> Rogue events: 182 (SWH=541.501, Thr=2166.002, Thr/SWH=4.00)
+
+BW = 11.1 nm
+  Figure 1 -> Rogue events: 182 (SWH=543.773, Thr=2175.092, Thr/SWH=4.00)
+
+BW = 11.2 nm
+  Figure 1 -> Rogue events: 181 (SWH=544.788, Thr=2179.152, Thr/SWH=4.00)
+
+BW = 11.3 nm
+  Figure 1 -> Rogue events: 180 (SWH=545.960, Thr=2183.840, Thr/SWH=4.00)
+
+BW = 11.4 nm
+  Figure 1 -> Rogue events: 179 (SWH=546.936, Thr=2187.744, Thr/SWH=4.00)
+
+BW = 11.5 nm
+  Figure 1 -> Rogue events: 180 (SWH=548.278, Thr=2193.113, Thr/SWH=4.00)
+
+BW = 11.6 nm
+  Figure 1 -> Rogue events: 178 (SWH=549.314, Thr=2197.257, Thr/SWH=4.00)
+
+BW = 11.7 nm
+  Figure 1 -> Rogue events: 177 (SWH=550.416, Thr=2201.663, Thr/SWH=4.00)
+
+BW = 11.8 nm
+  Figure 1 -> Rogue events: 177 (SWH=551.236, Thr=2204.944, Thr/SWH=4.00)
+
+BW = 11.9 nm
+  Figure 1 -> Rogue events: 176 (SWH=552.205, Thr=2208.820, Thr/SWH=4.00)
+
+BW = 12.1 nm
+  Figure 1 -> Rogue events: 175 (SWH=554.198, Thr=2216.791, Thr/SWH=4.00)
+
+BW = 12.2 nm
+  Figure 1 -> Rogue events: 109 (SWH=554.300, Thr=2217.198, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 108 (SWH=0.121, Thr=0.484, Thr/SWH=4.00)
+
+BW = 12.3 nm
+  Figure 1 -> Rogue events: 125 (SWH=566.400, Thr=2265.601, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 95 (SWH=0.147, Thr=0.589, Thr/SWH=4.00)
+
+BW = 12.4 nm
+  Figure 1 -> Rogue events: 172 (SWH=556.959, Thr=2227.834, Thr/SWH=4.00)
+
+BW = 12.5 nm
+  Figure 1 -> Rogue events: 136 (SWH=561.261, Thr=2245.044, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 86 (SWH=0.094, Thr=0.375, Thr/SWH=4.00)
+
+BW = 12.6 nm
+  Figure 1 -> Rogue events: 82 (SWH=566.900, Thr=2267.601, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 90 (SWH=0.118, Thr=0.473, Thr/SWH=4.00)
+
+BW = 12.7 nm
+  Figure 1 -> Rogue events: 121 (SWH=574.421, Thr=2297.685, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 97 (SWH=0.125, Thr=0.499, Thr/SWH=4.00)
+
+BW = 12.8 nm
+  Figure 1 -> Rogue events: 85 (SWH=544.890, Thr=2179.560, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 107 (SWH=0.096, Thr=0.384, Thr/SWH=4.00)
+
+BW = 12.9 nm
+  Figure 1 -> Rogue events: 121 (SWH=562.682, Thr=2250.726, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 74 (SWH=0.122, Thr=0.487, Thr/SWH=4.00)
+
+BW = 13.1 nm
+  Figure 1 -> Rogue events: 105 (SWH=539.439, Thr=2157.756, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 92 (SWH=0.137, Thr=0.548, Thr/SWH=4.00)
+
+BW = 13.2 nm
+  Figure 1 -> Rogue events: 117 (SWH=571.411, Thr=2285.642, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 80 (SWH=0.075, Thr=0.298, Thr/SWH=4.00)
+
+BW = 13.3 nm
+  Figure 1 -> Rogue events: 126 (SWH=565.867, Thr=2263.469, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 89 (SWH=0.164, Thr=0.654, Thr/SWH=4.00)
+
+BW = 13.4 nm
+  Figure 1 -> Rogue events: 123 (SWH=580.005, Thr=2320.018, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 97 (SWH=0.126, Thr=0.505, Thr/SWH=4.00)
+
+BW = 13.5 nm
+  Figure 1 -> Rogue events: 140 (SWH=572.460, Thr=2289.839, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 103 (SWH=0.073, Thr=0.292, Thr/SWH=4.00)
+
+BW = 13.6 nm
+  Figure 1 -> Rogue events: 102 (SWH=567.918, Thr=2271.673, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 97 (SWH=0.084, Thr=0.335, Thr/SWH=4.00)
+
+BW = 13.7 nm
+  Figure 1 -> Rogue events: 165 (SWH=592.326, Thr=2369.304, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 74 (SWH=0.080, Thr=0.319, Thr/SWH=4.00)
+
+BW = 13.8 nm
+  Figure 1 -> Rogue events: 112 (SWH=572.431, Thr=2289.724, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 88 (SWH=0.099, Thr=0.397, Thr/SWH=4.00)
+
+BW = 13.9 nm
+  Figure 1 -> Rogue events: 123 (SWH=567.589, Thr=2270.354, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 76 (SWH=0.143, Thr=0.572, Thr/SWH=4.00)
+
+BW = 14.1 nm
+  Figure 1 -> Rogue events: 94 (SWH=568.464, Thr=2273.858, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 97 (SWH=0.099, Thr=0.395, Thr/SWH=4.00)
+
+BW = 14.2 nm
+  Figure 1 -> Rogue events: 98 (SWH=543.873, Thr=2175.493, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 87 (SWH=0.112, Thr=0.449, Thr/SWH=4.00)
+
+BW = 14.3 nm
+  Figure 1 -> Rogue events: 66 (SWH=565.161, Thr=2260.643, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 67 (SWH=0.062, Thr=0.247, Thr/SWH=4.00)
+
+BW = 14.4 nm
+  Figure 1 -> Rogue events: 78 (SWH=551.858, Thr=2207.434, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 97 (SWH=0.081, Thr=0.324, Thr/SWH=4.00)
+
+BW = 14.5 nm
+  Figure 1 -> Rogue events: 114 (SWH=580.158, Thr=2320.634, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 106 (SWH=0.129, Thr=0.516, Thr/SWH=4.00)
+
+BW = 14.6 nm
+  Figure 1 -> Rogue events: 107 (SWH=557.918, Thr=2231.673, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 83 (SWH=0.081, Thr=0.323, Thr/SWH=4.00)
+
+BW = 14.7 nm
+  Figure 1 -> Rogue events: 130 (SWH=593.234, Thr=2372.938, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 89 (SWH=0.130, Thr=0.521, Thr/SWH=4.00)
+
+BW = 14.8 nm
+  Figure 1 -> Rogue events: 100 (SWH=583.964, Thr=2335.856, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 112 (SWH=0.107, Thr=0.429, Thr/SWH=4.00)
+
+BW = 14.9 nm
+  Figure 1 -> Rogue events: 106 (SWH=576.513, Thr=2306.053, Thr/SWH=4.00)
+  Figure 2 -> Rogue events: 104 (SWH=0.095, Thr=0.381, Thr/SWH=4.00)
+

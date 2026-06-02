@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Data Analyzer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+            min-width: 200px;
+        }
+
+        .user-welcome {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.95rem;
+        }
+
+        .user-institution {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ef4444;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+
+        @media (max-width: 768px) {
+            .user-info {
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        main {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .upload-section, .test-section, .results-section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-section h2, .test-section h2, .results-section h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        input[type="file"], select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #5c6bc0;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3f51b5;
+        }
+
+        #test-list {
+            margin-top: 15px;
+        }
+
+        .test-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .test-item:last-child {
+            border-bottom: none;
+        }
+
+        .test-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        #results-container {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        #message-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
+
+        #message-container.error {
+            background-color: #f44336;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        #download-btn {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        #download-btn:hover {
+            background-color: #388E3C;
+        }
+
+        .test-overview {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .overview-item {
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            background-color: #f0f4c3;
+        }
+
+        .overview-item h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .overview-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .test-overview {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .overview-item {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-text">Binary Data Analyzer</div>
+            <div class="user-info">
+                <div class="user-welcome">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Welcome, {{ user.name }}</span>
+                </div>
+                <div class="user-institution">
+                    <i class="fas fa-university"></i>
+                    <span>{{ user.institution }}</span>
+                </div>
+                <a href="/logout" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="upload-section">
+            <h2>Upload Binary Data</h2>
+            <input type="file" id="file-input">
+            <select id="file-type">
+                <option value="raw">Raw Binary</option>
+                <option value="hex">Hex Dump</option>
+            </select>
+            <button onclick="uploadFile()">Upload File</button>
+            <textarea id="binary-data" style="width: 100%; height: 100px; margin-top: 10px;" placeholder="Binary data will appear here" readonly></textarea>
+        </div>
+
+        <div class="test-section">
+            <h2>Select Tests</h2>
+            <div id="test-list">
+                </div>
+            <button onclick="executeTests()">Execute Tests</button>
+        </div>
+
+        <div class="results-section">
+            <h2>Test Results</h2>
+            <div class="test-overview" id="test-overview">
+                </div>
+            <div id="results-container">
+                </div>
+            <a id="download-btn" href="#" onclick="downloadResults()" style="display:none;">Download Results</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Binary Data Analyzer</p>
+    </footer>
+
+    <div id="message-container"></div>
+    <div id="loading">Loading...</div>
+
+    <script>
+        let tests = [
+            { id: 'test1', name: 'Entropy Analysis' },
+            { id: 'test2', name: 'Pattern Detection' },
+            { id: 'test3', name: 'Header Check' },
+            { id: 'test4', name: 'File Type Verification' }
+        ];
+
+        let currentResults = null;
+        let currentSessionId = null;
+
+        function populateTests() {
+            const testList = document.getElementById('test-list');
+            tests.forEach(test => {
+                const testItem = document.createElement('div');
+                testItem.classList.add('test-item');
+                testItem.innerHTML = `
+                    <input type="checkbox" id="${test.id}" value="${test.id}">
+                    <label for="${test.id}">${test.name}</label>
+                `;
+                testList.appendChild(testItem);
+            });
+        }
+
+        function uploadFile() {
+            const fileInput = document.getElementById('file-input');
+            const fileType = document.getElementById('file-type').value;
+            
+            if (!fileInput.files[0]) {
+                showMessage('Please select a file first.');
+                return;
+            }
+
+            // Show progress for large files
+            if (fileInput.files[0].size > 100 * 1024 * 1024) { // > 100MB
+                showMessage('Processing large file, please wait...', 'success');
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('file_type', fileType);
+
+            fetch('/upload_file', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('binary-data').value = data.binary_data;
+                    currentSessionId = data.session_id;
+                    showMessage(`File uploaded successfully. Binary length: ${data.binary_length.toLocaleString()} bits`, 'success');
+                } else {
+                    showMessage(data.error);
+                }
+            })
+            .catch(error => {
+                showMessage('Error uploading file: ' + error.message);
+            });
+        }
+
+        function executeTests() {
+            const binaryData = document.getElementById('binary-data').value;
+            const selectedTests = Array.from(document.querySelectorAll('#test-list input:checked'))
+                .map(checkbox => checkbox.value);
+
+            if (!binaryData) {
+                showMessage('Please upload a file first.');
+                return;
+            }
+
+            if (selectedTests.length === 0) {
+                showMessage('Please select at least one test.');
+                return;
+            }
+
+            document.getElementById('loading').style.display = 'flex';
+
+            fetch('/execute_tests', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    binary_data: binaryData,
+                    selected_tests: selectedTests,
+                    session_id: currentSessionId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('loading').style.display = 'none';
+                
+                if (data.success) {
+                    currentResults = data.results;
+                    currentSessionId = data.session_id;
+                    updateTestOverview(data.results);
+                    displayResults(data.results, data.data_length);
+                    showMessage(`Tests completed successfully. Data length: ${data.data_length.toLocaleString()} bits`, 'success');
+                    document.getElementById('download-btn').style.display = 'inline-flex';
+                } else {
+                    showMessage(data.error);
+                }
+            })
+            .catch(error => {
+                document.getElementById('loading').style.display = 'none';
+                showMessage('Error executing tests: ' + error.message);
+            });
+        }
+
+        function displayResults(results, dataLength) {
+            const resultsContainer = document.getElementById('results-container');
+            resultsContainer.innerHTML = '';
+
+            for (const testId in results) {
+                const result = results[testId];
+                const resultItem = document.createElement('div');
+                resultItem.classList.add('result-item');
+                resultItem.innerHTML = `
+                    <h3>${tests.find(test => test.id === testId).name}</h3>
+                    <p>${result}</p>
+                `;
+                resultsContainer.appendChild(resultItem);
+            }
+        }
+
+        function updateTestOverview(results) {
+            const testOverview = document.getElementById('test-overview');
+            testOverview.innerHTML = '';
+
+            let passedCount = 0;
+            let failedCount = 0;
+
+            for (const testId in results) {
+                if (results[testId] === 'Passed') {
+                    passedCount++;
+                } else {
+                    failedCount++;
+                }
+            }
+
+            const totalTests = Object.keys(results).length;
+
+            testOverview.innerHTML = `
+                <div class="overview-item">
+                    <h3>Total Tests</h3>
+                    <p>${totalTests}</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Passed</h3>
+                    <p>${passedCount}</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Failed</h3>
+                    <p>${failedCount}</p>
+                </div>
+            `;
+        }
+
+        function downloadResults() {
+            if (!currentResults) {
+                showMessage('No results to download.');
+                return;
+            }
+
+            const filename = 'test_results.txt';
+            let text = '';
+
+            for (const testId in currentResults) {
+                text += `${tests.find(test => test.id === testId).name}: ${currentResults[testId]}\n`;
+            }
+
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+        }
+
+        function showMessage(message, type = 'error') {
+            const messageContainer = document.getElementById('message-container');
+            messageContainer.textContent = message;
+            messageContainer.className = type === 'success' ? 'success' : 'error';
+            messageContainer.style.display = 'block';
+
+            setTimeout(() => {
+                messageContainer.style.display = 'none';
+            }, 5000);
+        }
+
+        document.addEventListener('DOMContentLoaded', populateTests);
+    </script>
+</body>
+</html>

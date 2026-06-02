@@ -1,0 +1,64 @@
+=== ENTROPY ANALYSIS ===
+Initial entropy (Plain):    7.009716
+Encrypted entropy (Cipher): 7.996883
+Final entropy (Decrypted):  7.009716
+
+=== STRUCTURAL SIMILARITY (SSIM) ===
+SSIM (Original vs Encrypted): 0.007595
+SSIM (Original vs Decrypted): 1.000000
+
+=== RECONSTRUCTION QUALITY ===
+MSE:  0.0
+PSNR: inf
+
+=== TIMING ===
+Encryption time: 0.5895333290100098
+Decryption time: 0.3461318016052246
+=== CORRELATION COEFFICIENTS ===
+Original Image:
+  Horizontal: 0.9334751147265753
+  Vertical:   0.9592229950890372
+  Diagonal:   0.9086634967479305
+
+Encrypted Image:
+  Horizontal: 0.0027933449624215814
+  Vertical:   -0.0019921978985532455
+  Diagonal:   -0.003296205385639689
+
+=== BLOCKING ATTACK ANALYSIS ===
+MSE (Blocking):  720.0196075439453
+PSNR (Blocking): 19.55736037586375
+SSIM (Blocking): 0.4065391900712286
+
+=== NOISE ATTACK ANALYSIS ===
+Salt & Pepper Noise:
+  MSE:  610.5886840820312
+  PSNR: 20.27331609523463
+  SSIM: 0.4464609180396899
+
+Gaussian Noise:
+  MSE:  1015.3016052246094
+  PSNR: 18.064852880496364
+  SSIM: 0.3240792793700863
+
+QRNG-based Noise:
+  MSE:  1886.3097229003906
+  PSNR: 15.374673575657884
+  SSIM: 0.23842695554691035
+
+=== DIFFERENTIAL ATTACK ANALYSIS ===
+NPCR (%): 0.00152587890625
+UACI (%): 0.0007659313725490196
+
+=== KEY SENSITIVITY ANALYSIS ===
+NPCR (%): 2.2613525390625
+UACI (%): 0.5571672028186274
+SSIM (Cipher vs Cipher'): 0.9834333743087371
+
+=== BRUTE-FORCE ATTACK ANALYSIS ===
+Key space size: 2^4096
+Assumed attack rate: 10^12 keys/sec
+log10(Time in seconds): 1221.02
+log10(Time in years):   1213.52
+Conclusion: Brute-force attack is computationally infeasible.
+

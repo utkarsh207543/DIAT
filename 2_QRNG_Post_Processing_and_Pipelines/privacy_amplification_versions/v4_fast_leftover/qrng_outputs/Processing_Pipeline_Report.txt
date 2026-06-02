@@ -1,0 +1,12 @@
+QRNG POST-PROCESSING PIPELINE REPORT
+======================================================================
+
+Input file: Utkarsh_QRNG_10.txt
+Processing time: 2025-07-31 11:14:37
+Target bits per technique: 500,000
+Successful techniques: 6
+
+PIPELINE WORKFLOW:
+------------------------------
+1. Raw QRNG data parsed and saved
+2. Von Neumann debiasing applied (base for all techniques)

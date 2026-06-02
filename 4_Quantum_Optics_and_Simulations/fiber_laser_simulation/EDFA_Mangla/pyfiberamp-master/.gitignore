@@ -1,0 +1,15 @@
+
+__pycache__/
+*.py[co]
+*.egg-info
+.idea/
+*.profile
+.ipynb_checkpoints/
+dist/
+build/
+taper_profiles/
+test_scripts/
+validation/
+.pypirc
+docs/_*
+pyfiberamp/taper

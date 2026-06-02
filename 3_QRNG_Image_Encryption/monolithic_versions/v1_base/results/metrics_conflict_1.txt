@@ -1,0 +1,5 @@
+MSE: 0.0
+PSNR: inf
+Entropy (Encrypted): 7.813557519041615
+Encryption time: 3.1960902214050293
+Decryption time: 3.1931891441345215

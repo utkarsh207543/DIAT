@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIST STS | Randomness Analysis</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mobile.css') }}">
+</head>
+
+<body>
+
+    <div class="app-layout">
+        <!-- Sidebar: Configuration & Controls -->
+        <aside class="sidebar glass-panel">
+            <div class="brand-section">
+                <div class="logo-wrapper">
+                    <img src="/static/images/diat-logo.png" alt="Logo" class="logo">
+                </div>
+                <div class="brand-text">
+                    <h1>DIAT NIST STS</h1>
+                    <span class="version-tag">v2.3 Pro</span>
+                </div>
+            </div>
+
+            <div class="sidebar-scroll">
+                <!-- Data Input Section -->
+                <div class="control-group">
+                    <div class="group-header">
+                        <i class="fas fa-database"></i>
+                        <span>Data Source</span>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label>Quick Input (Binary)</label>
+                        <textarea id="binary-data" placeholder="010101..."></textarea>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-wrapper">
+                            <label>File Upload</label>
+                            <div class="file-drop-zone compact" onclick="document.getElementById('file-input').click()">
+                                <input type="file" id="file-input" hidden accept=".txt,.dat,.bin">
+                                <div class="file-empty-state" id="file-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Upload</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label>Format</label>
+                            <div class="custom-select">
+                                <select id="file-type">
+                                    <option value="binary">Binary</option>
+                                    <option value="string">Text</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parameters Section (Collapsible) -->
+                <div class="control-group">
+                    <div class="group-header">
+                        <i class="fas fa-sliders-h"></i>
+                        <span>Parameters</span>
+                    </div>
+
+                    <div class="params-grid">
+                        <div class="input-wrapper">
+                            <label>Block Freq (M)</label>
+                            <input type="number" id="param-block-freq" value="128">
+                        </div>
+                        <div class="input-wrapper">
+                            <label>NonOverlapping (m)</label>
+                            <input type="number" id="param-non-overlap" value="9">
+                        </div>
+                        <div class="input-wrapper">
+                            <label>Overlapping (m)</label>
+                            <input type="number" id="param-overlap" value="9">
+                        </div>
+                        <div class="input-wrapper">
+                            <label>Approx. Entropy (m)</label>
+                            <input type="number" id="param-approx-ent" value="10">
+                        </div>
+                        <div class="input-wrapper">
+                            <label>Serial (m)</label>
+                            <input type="number" id="param-serial" value="16">
+                        </div>
+                        <div class="input-wrapper">
+                            <label>Linear Comp (M)</label>
+                            <input type="number" id="param-linear" value="500">
+                        </div>
+                        <div class="input-wrapper full-width">
+                            <label>Bitstreams</label>
+                            <input type="number" id="param-streams" value="1" min="1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="btn btn-primary btn-glow full-width" onclick="executeTests()">
+                    <i class="fas fa-bolt"></i> Run Analysis
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content: Tests & Results -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar glass-panel">
+                <div class="page-title">
+                    <h2>Test Configuration</h2>
+                    <p>Select statistical tests to evaluate randomness</p>
+                </div>
+                <div class="top-actions">
+                    <button class="btn btn-secondary btn-sm" onclick="toggleAllTests(true)" title="Select All">
+                        <i class="fas fa-check-double"></i> Select All
+                    </button>
+                    <button class="btn btn-icon" onclick="toggleAllTests(false)" title="Clear All">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <div class="divider-v"></div>
+                    <div class="status-indicator">
+                        <span class="dot online"></span> System Ready
+                    </div>
+                </div>
+            </header>
+
+            <div class="scroll-content">
+                <!-- Test Grid -->
+                <div class="tests-wrapper modern-grid">
+                    {% for i in range(test_types|length) %}
+                    <div class="test-card" onclick="toggleTest(this)" data-id="{{ i }}">
+                        <div class="card-glow"></div>
+                        <div class="test-icon">
+                            <!-- Dynamic Icon Logic roughly mapped or generic -->
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="test-info">
+                            <span class="test-hash">#{{ "%02d" % (i+1) }}</span>
+                            <span class="test-name">{{ test_types[i] }}</span>
+                        </div>
+                        <div class="checkbox-indicator">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <input type="checkbox" id="test-{{ i }}" value="{{ i }}" hidden>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Results Section -->
+                <section id="results-section" class="results-panel glass-panel" style="display: none;">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-chart-pie"></i> Analysis Report</h3>
+                        <div class="panel-actions">
+                            <button class="btn btn-sm btn-secondary" onclick="resetAll()">Reset</button>
+                            <button class="btn btn-sm btn-primary" onclick="downloadResults()">Download</button>
+                        </div>
+                    </div>
+
+                    <div class="stats-overview">
+                        <div class="stat-box">
+                            <span class="label">Total</span>
+                            <span class="value" id="total-tests">0</span>
+                        </div>
+                        <div class="stat-box success">
+                            <span class="label">Passed</span>
+                            <span class="value" id="passed-tests">0</span>
+                        </div>
+                        <div class="stat-box danger">
+                            <span class="label">Failed</span>
+                            <span class="value" id="failed-tests">0</span>
+                        </div>
+                        <div class="stat-box" id="score-ring">
+                            <span class="label">Quality</span>
+                            <span class="value" id="quality-score" style="color: #8b5cf6;">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="table-frame">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Test Name</th>
+                                    <th>P-Value (Uniformity)</th>
+                                    <th>Proportion</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-body">
+                                <!-- JS Populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+            <footer class="app-footer">
+                <div class="footer-left">
+                    <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-22r1a.pdf"
+                        target="_blank">
+                        <i class="fas fa-file-pdf"></i> Download NIST Test Suite (SP 800-22)
+                    </a>
+                </div>
+                <div class="footer-right">
+                    Author: Utkarsh Kumar Singh<br>
+                    <span class="footer-email"><a href="mailto:utkarsh@ieee.org">utkarsh@ieee.org</a></span>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div style="text-align: center;">
+            <div class="spinner-modern"></div>
+            <h3 style="margin-top: 20px; color: white;">Processing Sequence...</h3>
+            <p style="color: rgba(255,255,255,0.6);">Running NIST Statistical Suite</p>
+        </div>
+    </div>
+
+    <script>
+        let currentResults = [];
+        let currentBinaryData = '';
+
+        // UI Interactions
+        function toggleTest(card) {
+            const checkbox = card.querySelector('input');
+            checkbox.checked = !checkbox.checked;
+            card.classList.toggle('selected', checkbox.checked);
+        }
+
+        function toggleAllTests(select) {
+            const cards = document.querySelectorAll('.test-card');
+            cards.forEach(card => {
+                const checkbox = card.querySelector('input');
+                checkbox.checked = select;
+                card.classList.toggle('selected', select);
+            });
+        }
+
+        document.getElementById('file-input').addEventListener('change', function (e) {
+            if (this.files && this.files[0]) {
+                document.getElementById('file-label').innerHTML = `
+                    <i class="fas fa-file-alt" style="color: #3b82f6;"></i>
+                    <span style="color: white; font-weight: 500;">${this.files[0].name}</span>
+                `;
+                uploadFile();
+            }
+        });
+
+        // Core Functions
+        function uploadFile() {
+            const fileInput = document.getElementById('file-input');
+            const fileType = document.getElementById('file-type').value;
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('file_type', fileType);
+
+            document.getElementById('file-label').innerHTML += ' <span style="font-size:0.8em">(Uploading...)</span>';
+
+            fetch('/upload_file', { method: 'POST', body: formData })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('binary-data').value = data.binary_data;
+                        document.getElementById('file-label').innerHTML = `
+                            <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                            <span>Ready: ${data.binary_length.toLocaleString()} bits data</span>
+                        `;
+                    } else {
+                        alert("Upload failed: " + data.error);
+                    }
+                });
+        }
+
+        function executeTests() {
+            const binaryData = document.getElementById('binary-data').value;
+            const selectedTests = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                .map(cb => parseInt(cb.value));
+
+            // Collect Parameters
+            const params = {
+                'block_frequency': document.getElementById('param-block-freq') ? document.getElementById('param-block-freq').value : 128,
+                'non_overlapping': document.getElementById('param-non-overlap') ? document.getElementById('param-non-overlap').value : 9,
+                'overlapping': document.getElementById('param-overlap') ? document.getElementById('param-overlap').value : 9,
+                'approx_entropy': document.getElementById('param-approx-ent') ? document.getElementById('param-approx-ent').value : 10,
+                'serial': document.getElementById('param-serial') ? document.getElementById('param-serial').value : 16,
+                'linear_complexity': document.getElementById('param-linear') ? document.getElementById('param-linear').value : 500
+            };
+
+            const bitstreamCount = document.getElementById('param-streams') ? parseInt(document.getElementById('param-streams').value) : 1;
+
+            if (!binaryData || selectedTests.length === 0) {
+                alert("Please provide data and select at least one test.");
+                return;
+            }
+
+            document.getElementById('loading-overlay').style.display = 'flex';
+            currentBinaryData = binaryData;
+
+            fetch('/execute_tests', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    binary_data: binaryData,
+                    selected_tests: selectedTests,
+                    parameters: params,
+                    bitstream_count: bitstreamCount
+                })
+            })
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('loading-overlay').style.display = 'none';
+                    if (data.success) {
+                        currentResults = data.results;
+                        renderResults(data.results);
+                    } else {
+                        alert('Analysis Failed: ' + data.error);
+                    }
+                })
+                .catch(e => {
+                    document.getElementById('loading-overlay').style.display = 'none';
+                    alert('System Error: ' + e);
+                });
+        }
+
+        function renderResults(results) {
+            const tableBody = document.getElementById('results-body');
+            let totalTests = 0;
+            let passCount = 0;
+            let html = '';
+
+            results.forEach((res, index) => {
+                totalTests++;
+                const isPass = res.status === 'PASS';
+                if (isPass) passCount++;
+
+                let statusHtml = isPass
+                    ? `<span class="status-badge status-pass"><i class="fas fa-check"></i> PASSED</span>`
+                    : `<span class="status-badge status-fail"><i class="fas fa-times"></i> ${res.status}</span>`;
+
+                if (res.is_aggregated) {
+                    // Aggregated Row
+                    const rowId = `detail-${index}`;
+                    const pValDisplay = typeof res.p_value === 'number' ? res.p_value.toFixed(6) : res.p_value;
+
+                    html += `
+                        <tr class="main-row" onclick="toggleDetails('${rowId}', this)">
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <button class="btn-icon-tiny"><i class="fas fa-chevron-right transition-icon"></i></button>
+                                    <strong>${res.test_name}</strong>
+                                    <span class="badge-count">${res.count} results</span>
+                                </div>
+                            </td>
+                            <td style="font-family: 'JetBrains Mono'">${pValDisplay} (Avg)</td>
+                            <td style="font-family: 'JetBrains Mono'">${res.proportion}</td>
+                            <td>${statusHtml}</td>
+                        </tr>
+                        <tr id="${rowId}" class="detail-row" style="display: none;">
+                            <td colspan="4" style="padding: 0;">
+                                <div class="nested-table-container">
+                                    <table class="nested-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Sub-Test / Variant</th>
+                                                <th>P-Value</th>
+                                                <th>Proportion</th>
+                                                <th>Result</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${res.sub_results.map(sub => `
+                                                <tr>
+                                                    <td>${sub.test_name}</td>
+                                                    <td style="font-family: 'JetBrains Mono'">${sub.p_value.toFixed(6)}</td>
+                                                    <td style="font-family: 'JetBrains Mono'">${sub.proportion}</td>
+                                                    <td>
+                                                        ${sub.status === 'PASS'
+                            ? '<span style="color: var(--success-color); font-size: 0.8em;"><i class="fas fa-check"></i></span>'
+                            : '<span style="color: var(--error-color); font-size: 0.8em;"><i class="fas fa-times"></i></span>'}
+                                                    </td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                } else {
+                    // Standard Row
+                    const pValDisplay = typeof res.p_value === 'number' ? res.p_value.toFixed(6) : res.p_value;
+                    html += `
+                        <tr>
+                            <td><strong>${res.test_name}</strong></td>
+                            <td style="font-family: 'JetBrains Mono'">${pValDisplay}</td>
+                            <td style="font-family: 'JetBrains Mono'">${res.proportion}</td>
+                            <td>${statusHtml}</td>
+                        </tr>
+                    `;
+                }
+            });
+
+            // Update Header
+            document.querySelector('#results-body').innerHTML = html;
+
+            // Update Metrics
+            document.getElementById('total-tests').textContent = totalTests; // Counts groups as 1
+            document.getElementById('passed-tests').textContent = passCount;
+            document.getElementById('failed-tests').textContent = totalTests - passCount;
+
+            const score = totalTests > 0 ? Math.round((passCount / totalTests) * 100) : 0;
+            document.getElementById('quality-score').textContent = score + '%';
+
+            // Show Panel
+            document.getElementById('results-section').style.display = 'block';
+            document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleDetails(rowId, btn) {
+            const row = document.getElementById(rowId);
+            const icon = btn.querySelector('.transition-icon');
+
+            if (row.style.display === 'none') {
+                row.style.display = 'table-row';
+                row.style.animation = 'fadeIn 0.3s ease';
+                if (icon) icon.style.transform = 'rotate(90deg)';
+                btn.classList.add('expanded');
+            } else {
+                row.style.display = 'none';
+                if (icon) icon.style.transform = 'rotate(0deg)';
+                btn.classList.remove('expanded');
+            }
+        }
+
+        function downloadResults() {
+            // Direct download of the server-side report file
+            window.location.href = '/download_results';
+        }
+
+        function resetAll() {
+            document.getElementById('binary-data').value = '';
+            document.getElementById('results-section').style.display = 'none';
+            toggleAllTests(false);
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+
+</html>

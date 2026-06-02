@@ -1,0 +1,22 @@
+=== QRNG ENCRYPTION REPORT ===
+
+Encryption Time: 0.1154 s
+Decryption Time: 0.1161 s
+
+=== DIFFERENTIAL ATTACK (Target: >99.6% / ~33.4%) ===
+NPCR: 99.6124 %
+UACI: 33.5741 %
+
+=== INFORMATION ENTROPY (Target: ~8.0) ===
+Original:  7.0097
+Encrypted: 7.9972
+
+=== QUALITY METRICS ===
+MSE:  9383.2463
+PSNR: 8.4073 dB
+SSIM: 0.0083 (1.0 = Perfect Reconstruction)
+
+=== CORRELATION (Original / Encrypted) ===
+Horizontal: 0.9335 / 0.0074
+Vertical:   0.9592 / 0.0007
+Diagonal:   0.9087 / 0.0015

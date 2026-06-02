@@ -1,0 +1,35 @@
+=== BASELINE ===
+MSE: 0.0
+PSNR: inf
+Encryption time: 0.26589012145996094
+Decryption time: 0.23703479766845703
+
+=== ENTROPY ===
+Original entropy:  7.009716283345515
+Encrypted entropy: 7.997477964102657
+Decrypted entropy: 7.009716283345515
+
+=== CORRELATION (ENCRYPTED) ===
+Horizontal: 0.00019590102471911242
+Vertical:   -0.003162588684885269
+Diagonal:   -0.000744694159098349
+
+=== SALT & PEPPER ===
+MSE: 487.8102722167969
+PSNR: 21.24829419502539
+
+=== GAUSSIAN ===
+MSE: 933.3475799560547
+PSNR: 18.430369551213403
+
+=== DIFFERENTIAL ===
+NPCR: 2.23388671875
+UACI: 1.1098405426623774
+
+=== KEY SENSITIVITY ===
+Cipher diff (%): 2.23388671875
+
+=== BRUTE-FORCE ATTACK ===
+Key space (bits): 4096
+Key space size: 2^4096
+Brute-force attack is computationally infeasible.

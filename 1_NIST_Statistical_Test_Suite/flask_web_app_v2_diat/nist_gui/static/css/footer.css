@@ -1,0 +1,38 @@
+/* App Footer */
+.app-footer {
+    height: 60px;
+    border-top: 1px solid var(--panel-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    background: rgba(5, 11, 20, 0.8);
+    backdrop-filter: blur(10px);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    z-index: 10;
+}
+
+.app-footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.app-footer a:hover {
+    color: var(--accent-color);
+}
+
+.footer-right {
+    text-align: right;
+    line-height: 1.4;
+}
+
+.footer-email {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}

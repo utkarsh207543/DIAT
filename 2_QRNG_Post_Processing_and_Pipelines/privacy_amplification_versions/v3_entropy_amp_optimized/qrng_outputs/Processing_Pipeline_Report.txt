@@ -1,0 +1,65 @@
+QRNG POST-PROCESSING PIPELINE REPORT
+======================================================================
+
+Input file: Utkarsh_QRNG_10.txt
+Processing time: 2025-07-31 11:46:45
+Target bits per technique: 500,000
+
+PIPELINE WORKFLOW:
+------------------------------
+1. Raw QRNG data parsed and saved
+2. Von Neumann debiasing applied (base for all techniques)
+3. All post-processing techniques applied to debiased base
+4. Entropy amplification to 500K bits per technique
+5. Final results saved with technique names
+
+FINAL RESULTS SUMMARY:
+------------------------------
+
+SHA256:
+  Output bits: 500,000
+  Entropy: 0.999205
+  Balance: 0.516596
+  Files: SHA256_500K.txt, SHA256_500K.bin
+
+SHA3:
+  Output bits: 500,000
+  Entropy: 0.997521
+  Balance: 0.529304
+  Files: SHA3_500K.txt, SHA3_500K.bin
+
+Peres:
+  Output bits: 500,000
+  Entropy: 0.999603
+  Balance: 0.511722
+  Files: Peres_500K.txt, Peres_500K.bin
+
+MultibitDebiasing:
+  Output bits: 500,000
+  Entropy: 0.999725
+  Balance: 0.509770
+  Files: MultibitDebiasing_500K.txt, MultibitDebiasing_500K.bin
+
+AdaptiveDebiasing:
+  Output bits: 500,000
+  Entropy: 0.998546
+  Balance: 0.477558
+  Files: AdaptiveDebiasing_500K.txt, AdaptiveDebiasing_500K.bin
+
+TrevisanExtractor:
+  Output bits: 500,000
+  Entropy: 0.999008
+  Balance: 0.481460
+  Files: TrevisanExtractor_500K.txt, TrevisanExtractor_500K.bin
+
+LeftoverHashLemma:
+  Output bits: 500,000
+  Entropy: 0.998549
+  Balance: 0.522424
+  Files: LeftoverHashLemma_500K.txt, LeftoverHashLemma_500K.bin
+
+NIST TEST PREPARATION:
+------------------------------
+All .bin files are ready for NIST Statistical Test Suite
+Each file contains exactly 500,000 bits (unless insufficient source data)
+Use these files to compare randomness quality across techniques

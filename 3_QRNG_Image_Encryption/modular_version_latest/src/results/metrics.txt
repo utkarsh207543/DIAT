@@ -1,0 +1,14 @@
+=== QUANTUM CRYPTO ANALYSIS REPORT ===
+Encryption Time: 3.1584s
+Decryption Time: 3.1146s
+
+=== SECURITY METRICS (Cipher) ===
+Entropy (Original):  7.3511
+Entropy (Encrypted): 7.8136 (Target: ~8.0)
+NPCR: 0.0001% (Target: >99.6%)
+UACI: 0.0001% (Target: ~33.4%)
+
+=== QUALITY METRICS (Reconstruction) ===
+MSE:  0.0000
+PSNR: inf dB
+SSIM: 1.0000 (1.0 = Perfect match)

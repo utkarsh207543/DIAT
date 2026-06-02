@@ -1,0 +1,43 @@
+=== ENTROPY ANALYSIS ===
+Initial entropy (Plain):    7.009716
+Encrypted entropy (Cipher): 7.996883
+Final entropy (Decrypted):  7.009716
+
+=== STRUCTURAL SIMILARITY (SSIM) ===
+SSIM (Original vs Encrypted): 0.007595
+SSIM (Original vs Decrypted): 1.000000
+
+=== RECONSTRUCTION QUALITY ===
+MSE:  0.0
+PSNR: inf
+
+=== TIMING ===
+Encryption time: 0.3541429042816162
+Decryption time: 0.2530491352081299
+=== CORRELATION COEFFICIENTS ===
+Original Image:
+  Horizontal: 0.9334751147265753
+  Vertical:   0.9592229950890372
+  Diagonal:   0.9086634967479305
+
+Encrypted Image:
+  Horizontal: 0.0027933449624215814
+  Vertical:   -0.0019921978985532455
+  Diagonal:   -0.003296205385639689
+
+=== NOISE ATTACK ANALYSIS ===
+Salt & Pepper Noise:
+  MSE:  464.3675231933594
+  PSNR: 21.462185223059404
+  SSIM: 0.5181854310459817
+
+Gaussian Noise:
+  MSE:  936.2209014892578
+  PSNR: 18.417020281780474
+  SSIM: 0.34100042843096806
+
+QRNG-based Noise:
+  MSE:  1765.64111328125
+  PSNR: 15.661779279689014
+  SSIM: 0.24939277896390036
+
